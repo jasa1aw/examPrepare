@@ -1,34 +1,34 @@
 
-import React, { useState, useEffect } from 'react';
-import { QUESTIONS_PHILOSOPHY, QUESTIONS_PSYCHOLOGY } from './constants';
-import { QuizState, AIAnalysis, Question, Subject } from './types';
-import { QuestionCard } from './components/QuestionCard';
-import { QuizResults } from './components/QuizResults';
-import { StatsSidebar } from './components/StatsSidebar';
-import { ApiKeyModal } from './components/ApiKeyModal';
-import { WelcomeScreen } from './components/WelcomeScreen';
-import { analyzeQuestion } from './services/geminiService';
-import { Settings, GraduationCap, RotateCcw, ArrowRight, ArrowLeft, Brain, BookOpen, Clock, Home } from 'lucide-react';
+import { ArrowLeft, ArrowRight, BookOpen, Brain, Globe, GraduationCap, Home, RotateCcw, Settings } from 'lucide-react'
+import React, { useEffect, useState } from 'react'
+import { ApiKeyModal } from './components/ApiKeyModal'
+import { QuestionCard } from './components/QuestionCard'
+import { QuizResults } from './components/QuizResults'
+import { StatsSidebar } from './components/StatsSidebar'
+import { WelcomeScreen } from './components/WelcomeScreen'
+import { QUESTIONS_CULTUROLOGY, QUESTIONS_PHILOSOPHY, QUESTIONS_PSYCHOLOGY } from './constants'
+import { analyzeQuestion } from './services/geminiService'
+import { AIAnalysis, Question, QuizState, Subject } from './types'
 
-const BATCH_SIZE = 15;
+const BATCH_SIZE = 15
 
 // Fisher-Yates Shuffle Algorithm
 const shuffleArray = <T,>(array: T[]): T[] => {
-  const newArray = [...array];
+  const newArray = [...array]
   for (let i = newArray.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-    [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+    [newArray[i], newArray[j]] = [newArray[j], newArray[i]]
   }
-  return newArray;
-};
+  return newArray
+}
 
 const App: React.FC = () => {
-  const [appMode, setAppMode] = useState<'WELCOME' | 'QUIZ'>('WELCOME');
-  const [gameMode, setGameMode] = useState<'PRACTICE' | 'EXAM'>('PRACTICE');
-  const [subject, setSubject] = useState<Subject>('philosophy');
+  const [appMode, setAppMode] = useState<'WELCOME' | 'QUIZ'>('WELCOME')
+  const [gameMode, setGameMode] = useState<'PRACTICE' | 'EXAM'>('PRACTICE')
+  const [subject, setSubject] = useState<Subject>('philosophy')
 
   // Initialize questions based on subject - initially empty until started
-  const [questions, setQuestions] = useState<Question[]>([]);
+  const [questions, setQuestions] = useState<Question[]>([])
 
   const [quizState, setQuizState] = useState<QuizState>({
     currentQuestionIndex: 0,
@@ -38,43 +38,47 @@ const App: React.FC = () => {
     isReviewing: false,
     reviewQueue: [],
     mainProgressIndex: 0
-  });
+  })
 
-  const [apiKey, setApiKey] = useState<string>('');
-  const [showKeyModal, setShowKeyModal] = useState(false);
-  const [currentAnalysis, setCurrentAnalysis] = useState<AIAnalysis | null>(null);
-  const [isAnalyzing, setIsAnalyzing] = useState(false);
+  const [apiKey, setApiKey] = useState<string>('')
+  const [showKeyModal, setShowKeyModal] = useState(false)
+  const [currentAnalysis, setCurrentAnalysis] = useState<AIAnalysis | null>(null)
+  const [isAnalyzing, setIsAnalyzing] = useState(false)
 
   // Load API key from session storage if available
   useEffect(() => {
-    const storedKey = sessionStorage.getItem('gemini_api_key');
-    if (storedKey) setApiKey(storedKey);
-  }, []);
+    const storedKey = sessionStorage.getItem('gemini_api_key')
+    if (storedKey) setApiKey(storedKey)
+  }, [])
 
   // Effect to handle subject change
   useEffect(() => {
-    handleRestart(subject);
-  }, [subject]);
+    handleRestart(subject)
+  }, [subject])
 
   const handleApiKeySave = (key: string) => {
-    setApiKey(key);
-    sessionStorage.setItem('gemini_api_key', key);
-    setShowKeyModal(false);
-  };
+    setApiKey(key)
+    sessionStorage.setItem('gemini_api_key', key)
+    setShowKeyModal(false)
+  }
 
   const handleStartQuiz = (mode: 'PRACTICE' | 'EXAM', selectedSubject: Subject) => {
-    setGameMode(mode);
-    setSubject(selectedSubject);
+    setGameMode(mode)
+    setSubject(selectedSubject)
 
-    const rawQuestions = selectedSubject === 'psychology' ? QUESTIONS_PSYCHOLOGY : QUESTIONS_PHILOSOPHY;
-    let initialQuestions = shuffleArray(rawQuestions);
+    const rawQuestions = selectedSubject === 'psychology'
+      ? QUESTIONS_PSYCHOLOGY
+      : selectedSubject === 'culturology'
+        ? QUESTIONS_CULTUROLOGY
+        : QUESTIONS_PHILOSOPHY
+    let initialQuestions = shuffleArray(rawQuestions)
 
     if (mode === 'EXAM') {
-      initialQuestions = initialQuestions.slice(0, 40);
+      initialQuestions = initialQuestions.slice(0, 40)
     }
 
-    setQuestions(initialQuestions);
-    setAppMode('QUIZ');
+    setQuestions(initialQuestions)
+    setAppMode('QUIZ')
     setQuizState({
       currentQuestionIndex: 0,
       userAnswers: {},
@@ -84,34 +88,34 @@ const App: React.FC = () => {
       reviewQueue: [],
       mainProgressIndex: 0,
       startTime: Date.now(),
-    });
-    setCurrentAnalysis(null);
-  };
+    })
+    setCurrentAnalysis(null)
+  }
 
   // Timer logic for Exam Mode
-  const [elapsedTime, setElapsedTime] = useState(0);
+  const [elapsedTime, setElapsedTime] = useState(0)
 
   useEffect(() => {
-    let interval: NodeJS.Timeout;
+    let interval: NodeJS.Timeout
     if (appMode === 'QUIZ' && gameMode === 'EXAM' && !quizState.isFinished) {
       interval = setInterval(() => {
         if (quizState.startTime) {
-          setElapsedTime(Math.floor((Date.now() - quizState.startTime) / 1000));
+          setElapsedTime(Math.floor((Date.now() - quizState.startTime) / 1000))
         }
-      }, 1000);
+      }, 1000)
     }
-    return () => clearInterval(interval);
-  }, [appMode, gameMode, quizState.isFinished, quizState.startTime]);
+    return () => clearInterval(interval)
+  }, [appMode, gameMode, quizState.isFinished, quizState.startTime])
 
   const formatTime = (seconds: number) => {
-    const mins = Math.floor(seconds / 60);
-    const secs = seconds % 60;
-    return `${mins}:${secs.toString().padStart(2, '0')}`;
-  };
+    const mins = Math.floor(seconds / 60)
+    const secs = seconds % 60
+    return `${mins}:${secs.toString().padStart(2, '0')}`
+  }
 
   const handleSelectOption = (index: number) => {
-    if (currentAnalysis) return; // Prevent changing answer after check
-    const currentQ = questions[quizState.currentQuestionIndex];
+    if (currentAnalysis) return // Prevent changing answer after check
+    const currentQ = questions[quizState.currentQuestionIndex]
 
     setQuizState(prev => ({
       ...prev,
@@ -119,84 +123,84 @@ const App: React.FC = () => {
         ...prev.userAnswers,
         [currentQ.id]: index
       }
-    }));
-  };
+    }))
+  }
 
   const handleRequestAnalysis = async () => {
-    const currentIndex = quizState.currentQuestionIndex;
-    const currentQuestion = questions[currentIndex];
+    const currentIndex = quizState.currentQuestionIndex
+    const currentQuestion = questions[currentIndex]
 
     // Check if we use AI or Static
     if (!apiKey) {
       // STATIC CHECK MODE
-      const staticCorrectIndex = currentQuestion.correctAnswerIndex ?? 0;
+      const staticCorrectIndex = currentQuestion.correctAnswerIndex ?? 0
 
       const staticAnalysis: AIAnalysis = {
         correctOptionIndex: staticCorrectIndex,
         explanation: "Answer verified against the official answer key."
-      };
+      }
 
-      setCurrentAnalysis(staticAnalysis);
+      setCurrentAnalysis(staticAnalysis)
 
-      const selectedIndex = quizState.userAnswers[currentQuestion.id];
-      const isCorrect = selectedIndex === staticCorrectIndex;
+      const selectedIndex = quizState.userAnswers[currentQuestion.id]
+      const isCorrect = selectedIndex === staticCorrectIndex
 
       setQuizState(prev => ({
         ...prev,
         answerHistory: { ...prev.answerHistory, [currentIndex]: isCorrect }
-      }));
-      return;
+      }))
+      return
     }
 
     // AI MODE
-    setIsAnalyzing(true);
+    setIsAnalyzing(true)
     try {
-      const analysis = await analyzeQuestion(apiKey, currentQuestion);
-      setCurrentAnalysis(analysis);
+      const analysis = await analyzeQuestion(apiKey, currentQuestion)
+      setCurrentAnalysis(analysis)
 
-      const selectedIndex = quizState.userAnswers[currentQuestion.id];
-      const isCorrect = selectedIndex === analysis.correctOptionIndex;
+      const selectedIndex = quizState.userAnswers[currentQuestion.id]
+      const isCorrect = selectedIndex === analysis.correctOptionIndex
 
       setQuizState(prev => ({
         ...prev,
         answerHistory: { ...prev.answerHistory, [currentIndex]: isCorrect }
-      }));
+      }))
 
     } catch (error) {
-      alert("Failed to analyze question. Check your API key or network.");
+      alert("Failed to analyze question. Check your API key or network.")
     } finally {
-      setIsAnalyzing(false);
+      setIsAnalyzing(false)
     }
-  };
+  }
 
   const handleNext = () => {
-    const currentIndex = quizState.currentQuestionIndex;
+    const currentIndex = quizState.currentQuestionIndex
 
     // If we are currently reviewing
     if (quizState.isReviewing) {
-      const remainingQueue = quizState.reviewQueue.slice(1);
+      const remainingQueue = quizState.reviewQueue.slice(1)
 
       if (remainingQueue.length > 0) {
         // Continue review
-        const nextReviewIndex = remainingQueue[0];
+        const nextReviewIndex = remainingQueue[0]
         setQuizState(prev => ({
           ...prev,
           reviewQueue: remainingQueue,
           currentQuestionIndex: nextReviewIndex,
           // Important: Clear the answer for the next review question so user can try again
           userAnswers: { ...prev.userAnswers, [questions[nextReviewIndex].id]: undefined as any }
-        }));
+        }))
       } else {
         // Finish review, go back to main progress
-        const nextMainIndex = quizState.mainProgressIndex + 1;
+        const nextMainIndex = quizState.mainProgressIndex + 1
         if (nextMainIndex >= questions.length) {
-          finishQuiz();
+          finishQuiz()
         } else {
           setQuizState(prev => ({
             ...prev,
             isReviewing: false,
             currentQuestionIndex: nextMainIndex
-          }));
+          }))
         }
       }
     } else {
@@ -205,34 +209,34 @@ const App: React.FC = () => {
       // EXAM MODE FLOW
       if (gameMode === 'EXAM') {
         if (currentIndex < questions.length - 1) {
-          setQuizState(prev => ({ ...prev, currentQuestionIndex: currentIndex + 1 }));
+          setQuizState(prev => ({ ...prev, currentQuestionIndex: currentIndex + 1 }))
         } else {
-          finishQuiz();
+          finishQuiz()
         }
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        return;
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+        return
       }
 
       // PRACTICE MODE FLOW
-      const isBatchEnd = (currentIndex + 1) % BATCH_SIZE === 0 || currentIndex === questions.length - 1;
+      const isBatchEnd = (currentIndex + 1) % BATCH_SIZE === 0 || currentIndex === questions.length - 1
 
       if (isBatchEnd) {
         // Check for incorrect answers in the current batch
-        const batchStart = Math.floor(currentIndex / BATCH_SIZE) * BATCH_SIZE;
-        const incorrectIndices: number[] = [];
+        const batchStart = Math.floor(currentIndex / BATCH_SIZE) * BATCH_SIZE
+        const incorrectIndices: number[] = []
 
         for (let i = batchStart; i <= currentIndex; i++) {
           if (quizState.answerHistory[i] === false) {
-            incorrectIndices.push(i);
+            incorrectIndices.push(i)
           }
         }
 
         if (incorrectIndices.length > 0) {
           // Clear user answers for these questions so they can try again
-          const newUserAnswers = { ...quizState.userAnswers };
+          const newUserAnswers = { ...quizState.userAnswers }
           incorrectIndices.forEach(idx => {
-            delete newUserAnswers[questions[idx].id];
-          });
+            delete newUserAnswers[questions[idx].id]
+          })
 
           // Enter review mode
           setQuizState(prev => ({
@@ -242,16 +246,16 @@ const App: React.FC = () => {
             mainProgressIndex: currentIndex, // Save where we left off
             currentQuestionIndex: incorrectIndices[0],
             userAnswers: newUserAnswers,
-          }));
+          }))
         } else {
           // No errors, proceed normally
           if (currentIndex < questions.length - 1) {
             setQuizState(prev => ({
               ...prev,
               currentQuestionIndex: currentIndex + 1
-            }));
+            }))
           } else {
-            finishQuiz();
+            finishQuiz()
           }
         }
       } else {
@@ -259,40 +263,40 @@ const App: React.FC = () => {
         setQuizState(prev => ({
           ...prev,
           currentQuestionIndex: currentIndex + 1
-        }));
+        }))
       }
     }
 
-    setCurrentAnalysis(null);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+    setCurrentAnalysis(null)
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
 
   const handlePrevious = () => {
     if (gameMode === 'EXAM' && quizState.currentQuestionIndex > 0) {
-      setQuizState(prev => ({ ...prev, currentQuestionIndex: prev.currentQuestionIndex - 1 }));
-      setCurrentAnalysis(null);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setQuizState(prev => ({ ...prev, currentQuestionIndex: prev.currentQuestionIndex - 1 }))
+      setCurrentAnalysis(null)
+      window.scrollTo({ top: 0, behavior: 'smooth' })
     }
-  };
+  }
 
   const finishQuiz = () => {
     setQuizState(prev => {
       // Calculate Score for Exam
-      let score = undefined;
-      let endTime = undefined;
-      let correctCount = undefined;
+      let score = undefined
+      let endTime = undefined
+      let correctCount = undefined
 
       if (gameMode === 'EXAM') {
-        endTime = Date.now();
-        let c = 0;
+        endTime = Date.now()
+        let c = 0
         questions.forEach(q => {
           if (prev.userAnswers[q.id] === q.correctAnswerIndex) {
-            c++;
+            c++
           }
-        });
-        correctCount = c;
+        })
+        correctCount = c
         // Score out of 100
-        score = Math.round((c / questions.length) * 100);
+        score = Math.round((c / questions.length) * 100)
       }
 
       return {
@@ -301,23 +305,27 @@ const App: React.FC = () => {
         endTime,
         score,
         correctCount
-      };
-    });
-  };
+      }
+    })
+  }
 
   const handleRestart = (newSubject?: Subject) => {
     // If just changing subject in header during practice, restart practice
     // If coming from Results, go to Welcome Screen
     if (quizState.isFinished) {
-      setAppMode('WELCOME');
-      return;
+      setAppMode('WELCOME')
+      return
     }
 
-    const targetSubject = newSubject || subject;
-    const rawQuestions = targetSubject === 'psychology' ? QUESTIONS_PSYCHOLOGY : QUESTIONS_PHILOSOPHY;
+    const targetSubject = newSubject || subject
+    const rawQuestions = targetSubject === 'psychology'
+      ? QUESTIONS_PSYCHOLOGY
+      : targetSubject === 'culturology'
+        ? QUESTIONS_CULTUROLOGY
+        : QUESTIONS_PHILOSOPHY
 
     // Default to Practice behavior if switched mid-game via tabs
-    setQuestions(shuffleArray(rawQuestions));
+    setQuestions(shuffleArray(rawQuestions))
     setQuizState({
       currentQuestionIndex: 0,
       userAnswers: {},
@@ -326,30 +334,30 @@ const App: React.FC = () => {
       isReviewing: false,
       reviewQueue: [],
       mainProgressIndex: 0
-    });
-    setCurrentAnalysis(null);
-  };
+    })
+    setCurrentAnalysis(null)
+  }
 
-  const currentQuestion = questions[quizState.currentQuestionIndex];
+  const currentQuestion = questions[quizState.currentQuestionIndex]
 
   // Progress Calculation
   const displayedProgressIndex = quizState.isReviewing
     ? quizState.mainProgressIndex
-    : quizState.currentQuestionIndex;
+    : quizState.currentQuestionIndex
 
-  const progress = questions.length > 0 ? ((displayedProgressIndex + 1) / questions.length) * 100 : 0;
-  const isChecked = currentAnalysis !== null;
-  const hasAnswered = quizState.userAnswers[currentQuestion?.id] !== undefined;
+  const progress = questions.length > 0 ? ((displayedProgressIndex + 1) / questions.length) * 100 : 0
+  const isChecked = currentAnalysis !== null
+  const hasAnswered = quizState.userAnswers[currentQuestion?.id] !== undefined
 
   const stats = {
     passed: Object.keys(quizState.answerHistory).length,
     correct: Object.values(quizState.answerHistory).filter(Boolean).length,
     incorrect: Object.values(quizState.answerHistory).filter((v) => !v).length,
     remaining: questions.length - Object.keys(quizState.answerHistory).length,
-  };
+  }
 
   if (appMode === 'WELCOME') {
-    return <WelcomeScreen onStart={handleStartQuiz} />;
+    return <WelcomeScreen onStart={handleStartQuiz} />
   }
 
   return (
@@ -395,6 +403,16 @@ const App: React.FC = () => {
                 <Brain size={16} />
                 <span className="hidden xs:inline">Psychology</span>
               </button>
+              <button
+                onClick={() => setSubject('culturology')}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm font-medium transition-all ${subject === 'culturology'
+                  ? 'bg-white text-teal-700 shadow-sm'
+                  : 'text-gray-500 hover:text-gray-700'
+                  }`}
+              >
+                <Globe size={16} />
+                <span className="hidden xs:inline">Culturology</span>
+              </button>
             </div>
           </div>
 
@@ -424,7 +442,7 @@ const App: React.FC = () => {
         {!quizState.isFinished && (
           <div className="h-1 w-full bg-gray-100 relative">
             <div
-              className={`h-full transition-all duration-500 ease-out ${subject === 'psychology' ? 'bg-purple-600' : 'bg-brand-500'}`}
+              className={`h-full transition-all duration-500 ease-out ${subject === 'psychology' ? 'bg-purple-600' : subject === 'culturology' ? 'bg-teal-500' : 'bg-brand-500'}`}
               style={{ width: `${progress}%` }}
             />
           </div>
@@ -533,7 +551,7 @@ const App: React.FC = () => {
         <p>© 2024 Wayground Quiz. Powered by Gemini.</p>
       </footer>
     </div>
-  );
-};
+  )
+}
 
-export default App;
+export default App

@@ -1,13 +1,13 @@
-import React from 'react';
-import { BookOpen, GraduationCap, Clock, Award, Brain, ArrowRight } from 'lucide-react';
-import { Subject } from '../types';
+import { ArrowRight, Award, BookOpen, Brain, Clock, Globe, GraduationCap } from 'lucide-react'
+import React from 'react'
+import { Subject } from '../types'
 
 interface WelcomeScreenProps {
-    onStart: (mode: 'PRACTICE' | 'EXAM', subject: Subject) => void;
+    onStart: (mode: 'PRACTICE' | 'EXAM', subject: Subject) => void
 }
 
 export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onStart }) => {
-    const [subject, setSubject] = React.useState<Subject>('philosophy');
+    const [subject, setSubject] = React.useState<Subject>('philosophy')
 
     return (
         <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center p-4">
@@ -21,7 +21,7 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onStart }) => {
                         Wayground <span className="text-brand-600">Quiz</span>
                     </h1>
                     <p className="text-xl text-gray-500 max-w-2xl mx-auto">
-                        Master Philosophy and Psychology through interactive learning and assessment.
+                        Master Philosophy, Psychology, and Culturology through interactive learning and assessment.
                     </p>
                 </div>
 
@@ -30,8 +30,8 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onStart }) => {
                     <button
                         onClick={() => setSubject('philosophy')}
                         className={`flex items-center gap-2 px-6 py-3 rounded-full font-semibold transition-all ${subject === 'philosophy'
-                                ? 'bg-white text-brand-700 shadow-md border-brand-100 ring-2 ring-brand-500 ring-offset-2'
-                                : 'bg-transparent text-gray-400 hover:text-gray-600'
+                            ? 'bg-white text-brand-700 shadow-md border-brand-100 ring-2 ring-brand-500 ring-offset-2'
+                            : 'bg-transparent text-gray-400 hover:text-gray-600'
                             }`}
                     >
                         <BookOpen size={20} />
@@ -40,12 +40,22 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onStart }) => {
                     <button
                         onClick={() => setSubject('psychology')}
                         className={`flex items-center gap-2 px-6 py-3 rounded-full font-semibold transition-all ${subject === 'psychology'
-                                ? 'bg-white text-purple-700 shadow-md border-purple-100 ring-2 ring-purple-500 ring-offset-2'
-                                : 'bg-transparent text-gray-400 hover:text-gray-600'
+                            ? 'bg-white text-purple-700 shadow-md border-purple-100 ring-2 ring-purple-500 ring-offset-2'
+                            : 'bg-transparent text-gray-400 hover:text-gray-600'
                             }`}
                     >
                         <Brain size={20} />
                         Psychology
+                    </button>
+                    <button
+                        onClick={() => setSubject('culturology')}
+                        className={`flex items-center gap-2 px-6 py-3 rounded-full font-semibold transition-all ${subject === 'culturology'
+                            ? 'bg-white text-teal-700 shadow-md border-teal-100 ring-2 ring-teal-500 ring-offset-2'
+                            : 'bg-transparent text-gray-400 hover:text-gray-600'
+                            }`}
+                    >
+                        <Globe size={20} />
+                        Culturology
                     </button>
                 </div>
 
@@ -55,12 +65,12 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onStart }) => {
                         onClick={() => onStart('PRACTICE', subject)}
                         className="group relative bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl border-2 border-transparent hover:border-brand-500 transition-all text-left overflow-hidden"
                     >
-                        <div className={`absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity ${subject === 'psychology' ? 'text-purple-500' : 'text-brand-500'}`}>
+                        <div className={`absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity ${subject === 'psychology' ? 'text-purple-500' : subject === 'culturology' ? 'text-teal-500' : 'text-brand-500'}`}>
                             <BookOpen size={120} />
                         </div>
 
                         <div className="relative z-10 space-y-4">
-                            <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${subject === 'psychology' ? 'bg-purple-100 text-purple-600' : 'bg-brand-100 text-brand-600'}`}>
+                            <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${subject === 'psychology' ? 'bg-purple-100 text-purple-600' : subject === 'culturology' ? 'bg-teal-100 text-teal-600' : 'bg-brand-100 text-brand-600'}`}>
                                 <BookOpen size={24} />
                             </div>
 
@@ -132,5 +142,5 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onStart }) => {
                 </div>
             </div>
         </div>
-    );
-};
+    )
+}

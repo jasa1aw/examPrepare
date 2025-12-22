@@ -1,5 +1,5 @@
 
-import { Question } from './types';
+import { Question } from './types'
 
 // ==========================================
 // PARSING LOGIC
@@ -9,54 +9,54 @@ const parseQuestions = (rawData: string, answerKey?: Record<number, number>): Qu
   // 1. Split by "number dot" pattern (e.g., "1.", "105.")
   // We use a regex lookahead to split but keep the delimiter or just split and reconstruct
   // Regex: Split by newline followed by number and dot
-  const chunks = rawData.split(/\n(?=\d+\.)/);
+  const chunks = rawData.split(/\n(?=\d+\.)/)
 
-  const questions: Question[] = [];
+  const questions: Question[] = []
 
   chunks.forEach((chunk) => {
     // Clean up whitespace
-    const lines = chunk.trim().split('\n').map(l => l.trim()).filter(l => l);
-    if (lines.length < 2) return;
+    const lines = chunk.trim().split('\n').map(l => l.trim()).filter(l => l)
+    if (lines.length < 2) return
 
     // First line is the question text
     // Remove the leading number and dot (e.g. "1. <question>Text" or "1. Text")
-    let questionText = lines[0].replace(/^\d+\.\s*/, '').trim();
-    
+    let questionText = lines[0].replace(/^\d+\.\s*/, '').trim()
+
     // Remove <question> tag if present (legacy format)
-    questionText = questionText.replace('<question>', '').trim();
+    questionText = questionText.replace('<question>', '').trim()
 
     // The rest are options
     // Filter out lines that might be "Ответ:" (Answer keys in raw text) or empty
-    let options = lines.slice(1).filter(line => !line.toLowerCase().startsWith('ответ:'));
+    let options = lines.slice(1).filter(line => !line.toLowerCase().startsWith('ответ:'))
 
     // If options contain labels like "a)", "b)", remove them for cleaner UI
-    options = options.map(opt => opt.replace(/^[a-z]\)\s*/i, '').replace(/^\d+\.\s*/, ''));
+    options = options.map(opt => opt.replace(/^[a-z]\)\s*/i, '').replace(/^\d+\.\s*/, ''))
 
     if (options.length > 0) {
       // Extract ID from the first line for mapping
-      const idMatch = lines[0].match(/^(\d+)\./);
-      const id = idMatch ? parseInt(idMatch[1]) : questions.length + 1;
-      
+      const idMatch = lines[0].match(/^(\d+)\./)
+      const id = idMatch ? parseInt(idMatch[1]) : questions.length + 1
+
       const q: Question = {
         id: id,
         text: questionText,
         options: options,
-      };
+      }
 
       // Assign correct answer if key exists
       if (answerKey && answerKey[id] !== undefined) {
         // Ensure index is within bounds
         if (answerKey[id] < options.length) {
-          q.correctAnswerIndex = answerKey[id];
+          q.correctAnswerIndex = answerKey[id]
         }
       }
 
-      questions.push(q);
+      questions.push(q)
     }
-  });
+  })
 
-  return questions;
-};
+  return questions
+}
 
 // ==========================================
 // PHILOSOPHY DATA
@@ -1463,7 +1463,7 @@ consumerism
 education
 high standards
 hard work
-`;
+`
 
 const PHILOSOPHY_ANSWER_KEY: Record<number, number> = {
   1: 0, 2: 4, 3: 3, 4: 0, 5: 3, 6: 1, 7: 0, 8: 0, 9: 2, 10: 0,
@@ -1486,12 +1486,8 @@ const PHILOSOPHY_ANSWER_KEY: Record<number, number> = {
   171: 2, 172: 0, 173: 2, 174: 2, 175: 2, 176: 4, 177: 1, 178: 0, 179: 2, 180: 3,
   181: 4, 182: 1, 183: 4, 184: 2, 185: 3, 186: 4, 187: 1, 188: 0, 189: 2, 190: 3,
   191: 4, 192: 1, 193: 3, 194: 1, 195: 0, 196: 2, 197: 3, 198: 4, 199: 1, 200: 1
-};
+}
 
-
-// ==========================================
-// PSYCHOLOGY DATA
-// ==========================================
 
 const PSYCHOLOGY_RAW_DATA = `
 1. What is the literal meaning of the word "psychology"?
@@ -2284,7 +2280,7 @@ Disagreement
 Politeness
 Happiness
 Attractiveness
-`;
+`
 
 const PSYCHOLOGY_ANSWER_KEY: Record<number, number> = {
   1: 3, 2: 1, 3: 1, 4: 2, 5: 3, 6: 1, 7: 1, 8: 1, 9: 1, 10: 0,
@@ -2299,12 +2295,1158 @@ const PSYCHOLOGY_ANSWER_KEY: Record<number, number> = {
   91: 2, 92: 3, 93: 1, 94: 3, 95: 1, 96: 2, 97: 2, 98: 3, 99: 2, 100: 2,
   101: 1, 102: 0, 103: 1, 104: 1, 105: 1, 106: 1, 107: 1, 108: 1, 109: 1, 110: 1,
   111: 2, 112: 0, 113: 1
-};
+}
+// ==========================================
+// CULTUROLOGY DATA
+// ==========================================
+
+const CULTUROLOGY_RAW_DATA = `
+1.	The term "hegemony," as used in Cultural Studies to describe the dominant cultural norms and values that maintain social control, was originally developed by which thinker?
+A) Karl Marx
+B) Theodor Adorno
+C) Antonio Gramsci
+D) Jean Baudrillard
+E) Clifford Geertz
+
+2.	What is the main focus of cultural relativism in Cultural Studies?
+A) The belief that some cultures are more advanced than others
+B) That all cultural practices should be judged by universal moral standards
+C) That each culture must be understood in its own terms without ethnocentric judgment
+D) The classification of cultures according to religious traditions
+E) That culture is determined solely by economic systems
+
+3.	What role does media play in Cultural Studies?
+A) It is considered a neutral transmitter of factual information
+B) It is ignored in favor of traditional cultural expressions
+C) It is analyzed as a powerful tool that shapes ideology, identity, and cultural norms
+D) It is studied mainly for its technological innovations
+E) It is valued only for its entertainment function
+
+4.	Which of the following best defines culture in the context of Cultural Studies?
+A) The study of biology and human evolution
+B) The collection of economic systems in a society
+C) The shared beliefs, values, customs, behaviors, and artifacts of a group
+D) The formal political structure of a society
+E) A static and unchanging tradition passed through generations
+
+5.	Akhmet Baitursynov is primarily known for:
+A) Writing romantic poetry
+B) Leading the Red Army
+C) Creating the Kazakh alphabet reform and linguistic studies
+D) Organizing musical festivals
+E) Translating Chinese classics
+
+6.	Who is considered the father of American cultural anthropology?
+A) Clifford Geertz
+B) Bronisław Malinowski
+C) Lewis Henry Morgan
+D) Michel Foucault
+E) Franz Boas
+
+7.	The philosophy of "Homo Ludens" by Johan Huizinga emphasizes:
+A) War as the foundation of culture
+B) Logic as the main human function
+C) Play as the basis of culture and civilization
+D) Economy as the root of culture
+E) Politics as the highest cultural form
+
+8.	What is the difference between material and non-material culture?
+A) One is old, one is new
+B) One is correct, one is wrong
+C) One includes physical objects, the other includes beliefs and values
+D) Both are the same
+E) One is superior to the other
+
+9.	Which term is associated with Margaret Mead's studies of adolescence in Samoan society?
+A) Cultural conflict
+B) Cultural relativism
+C) Ethnocentrism
+D) Technological determinism
+E) Power dynamics
+
+10.	Which concept describes the coexistence of diverse cultures in one society?
+A) Nationalism
+B) Multiculturalism
+C) Cultural purity
+D) Ethnocentrism
+E) Colonialism
+
+11.	Researchers believe that an individual's norms and actions should be understood by others in terms of that individual's own cultural context. This concept is referred to as:
+A) Cultural interpretation
+B) Cultural sensitivity
+C) Cultural relativism
+D) Cultural boundaries
+E) Cultural aspect
+
+12.	An exchange student travels to Morocco to learn local language and culture. The first month he was there, he spent a lot of time at local bazaars where he learned about Moroccan "material culture". Which of the following is not an example of material culture?
+A) Traditions
+B) Vases
+C) Artifacts
+D) Souvenirs
+E) Necklaces
+
+13.	Proper gestures and body language are important during business interactions. When conducting business with other cultures, how should we understand gestures (such as shaking your head)?
+A) Gestures are understood by people and animals in the same way
+B) Gestures are interpreted in the same way by all cultures
+C) Gestures are not needed
+D) Gestures are defined uniquely by each culture
+E) Gestures are universal
+
+14.	Samat travels to a new country. While in line at the train station, other people stand very close to him closer than in his country. He immediately feels anxious and uncomfortable. The disorientation a person may feel when experiencing an unfamiliar way of life changes in social environments is referred to as:
+A) Culture shock
+B) Culture clash
+C) Cultural independency
+D) Cultural sickness
+E) Cultural dependency
+
+15.	The philosophy of "Homo Ludens" by Johan Huizinga emphasizes:
+A) War as the foundation of culture
+B) Logic as the main human function
+C) Play as the basis of culture and civilization
+D) Economy as the root of culture
+E) Politics as the highest cultural form
+
+16.	What is Al-Farabi best known for in the history of philosophy?
+A) Discovering algebra
+B) Founding political theory
+C) Synthesizing Greek philosophy with Islamic thought
+D) Writing only in poetry
+E) Inventing the printing press
+
+17.	What is the title of Al-Farabi's most famous political work?
+A) The Republic
+B) The Book of Justice
+C) The Virtuous City (al-Madina al-Fadila)
+D) The Path to Wisdom
+E) The Perfect Soul
+
+18.	Which of the following is a prominent symbol of modern Kazakh national identity?
+A) Yurt
+B) Golden Man (Altyn Adam)
+C) Silk
+D) Tundra
+E) Dombyra
+
+19.	What is the traditional Kazakh string instrument often used in contemporary performances?
+A) Komuz
+B) Kyl-kobyz
+C) Dombyra
+D) Balalaika
+E) Oud
+
+20.	Which city is considered the cultural and creative hub of modern Kazakhstan?
+A) Aktobe
+B) Almaty
+C) Turkestan
+D) Atyrau
+E) Shymkent
+
+21.	The "Rukhani Zhangyru" program aims to:
+A) Build more highways
+B) Modernize national identity through culture and education
+C) Expand natural gas
+D) Promote agriculture
+E) Open casinos
+
+22.	Which element is often used in modern Kazakh fashion design?
+A) Silk from China
+B) Wool from Europe
+C) Traditional ornaments and embroidery
+D) Denim only
+E) Leather only
+
+23.	"The Mind of Primitive Man" was written by:
+A) Franz Boas
+B) Edward Tylor
+C) Bronisław Malinowski
+D) Raymond Williams
+E) Stuart Hall
+
+24.	Ernst Cassirer believed that humans are:
+A) Political animals
+B) Rational calculators
+C) Symbolic animals
+D) Power seekers
+E) Economic beings
+
+25.	What is a "cultural code"?
+A) A genetic structure that determines culture
+B) A universal legal system
+C) A set of symbolic systems and meanings shared by a culture
+D) A computer program
+E) A scientific theory of biology
+
+26.	A cultural code can best be described as:
+A) The rules of grammar
+B) The visual appearance of a culture
+C) A deep structure of meanings, myths, and values that influence behavior
+D) The climate of a region
+E) Religious texts only
+
+27.	In media and communication studies, cultural codes are used to:
+A) Create scientific models
+B) Decode and analyze meaning in texts and media
+C) Set economic policies
+D) Interpret weather data
+E) Produce industrial goods
+
+28.	Which of the following fields most frequently studies cultural codes?
+A) Chemistry
+B) Engineering
+C) Culturology and Anthropology
+D) Geometry
+E) Architecture
+
+29.	The idea that "food is a communication system" comes from which approach?
+A) Political science
+B) Semiotics
+C) Astronomy
+D) Behavioral economics
+E) Pharmacology
+
+30.	When someone misinterprets a cultural gesture, it may be due to:
+A) Language error
+B) Lack of education
+C) A misunderstanding of the cultural code
+D) Memory loss
+E) Technology failure
+
+31.	Which concept best describes a community's general perception of the world and human existence?
+A) Legislation
+B) Worldview
+C) Geography
+D) Fashion
+E) Demographics
+
+32.	How are ethos and worldview transmitted within a culture?
+A) Through media and education
+B) Through traditions and rituals
+C) Through language and communication
+D) Through religion and art
+E) All of the above
+
+33.	What does the term "ethos" refer to in cultural studies?
+A) Economic structure
+B) A set of ethical norms and moral attitudes shared by a community
+C) The biological traits of a population
+D) A political ideology
+E) A form of entertainment
+
+34.	Which of the following is an element of non-material culture?
+A) Architecture
+B) Language
+C) Tools
+D) Clothing
+E) Food
+
+35.	What term refers to judging another culture solely by the values and standards of one's own culture?
+A) Multiculturalism
+B) Cultural relativism
+C) Ethnocentrism
+D) Cultural diffusion
+E) Enculturation
+
+36.	What is the most commonly accepted definition of culture?
+A) Biological inheritance
+B) Technological advancement
+C) Shared beliefs, values, and practices of a group
+D) Economic system of a nation
+E) Physical environment
+
+37.	Which studio has historically played a central role in producing Kazakh films?
+A) Studio Mosfilm
+B) Kazakhfilm
+C) Central Asia Pictures
+D) Steppe Studios
+E) Alatau Films
+
+38.	What is the primary function of language in human society?
+A) Decoration
+B) Survival instinct
+C) Communication
+D) Genetic transfer
+E) Imitation
+
+39.	What is non-verbal communication?
+A) Communication using language
+B) Communication without words
+C) Writing emails
+D) Grammar correction
+E) Silent reading
+
+40.	Which of the following is NOT a component of verbal communication?
+A) Vocabulary
+B) Syntax
+C) Tone of voice
+D) Facial expressions
+E) Grammar
+
+41.	What is digitalization in the context of culture?
+A) Using paper records for data storage
+B) Applying mathematical models to society
+C) The integration of digital technologies into cultural practices and institutions
+D) The destruction of traditional customs
+E) The development of agricultural tools
+
+42.	Which of the following is an example of digital culture?
+A) Traditional dances
+B) Oral storytelling
+C) Social media content creation
+D) Folk art
+E) Religious rituals
+
+43.	What does the term "digital divide" refer to?
+A) The separation of urban and rural areas
+B) The gap between those who have access to digital technologies and those who do not
+C) The difference between two cultures
+D) A global peace treaty
+E) Generational change in language
+
+44.	Which of the following best illustrates global digital culture?
+A) A local newspaper
+B) Traditional pottery
+C) Viral internet memes
+D) Religious sermons
+E) National flags
+
+45.	What role does artificial intelligence (AI) play in digital culture?
+A) It is used only in factories
+B) It helps translate languages, create art, and analyze cultural data
+C) It replaces humans in sports
+D) It destroys internet access
+E) It prevents online learning
+
+46.	Digital humanities refers to:
+A) A new religion
+B) Study of ancient tools
+C) The use of digital tools to study humanities disciplines
+D) Replacement of books with robots
+E) Natural sciences
+
+47.	Which social media platform is known for its cultural influence globally?
+A) Telegram
+B) WhatsApp
+C) TikTok
+D) Excel
+E) Firefox
+
+48.	Which technology is commonly used in the digital preservation of cultural sites?
+A) Steam engines
+B) Artificial intelligence
+C) 3D scanning and virtual reality
+D) Typewriters
+E) Morse code
+
+49.	Which of the following is an example of digital culture?
+A) Traditional dances
+B) Oral storytelling
+C) Social media content creation
+D) Folk art
+E) Religious rituals
+
+50.	What is digitalization in the context of culture?
+A) Using paper records for data storage
+B) Applying mathematical models to society
+C) The integration of digital technologies into cultural practices and institutions
+D) The destruction of traditional customs
+E) The development of agricultural tools
+
+51.	How has digitalization changed the way cultural heritage is preserved?
+A) It has reduced access to heritage
+B) It allows for digital archiving and wider dissemination
+C) It destroys historical records
+D) It prevents cultural exchange
+E) It limits international cooperation
+
+52.	What is semiotics?
+A) The study of stars
+B) The study of historical facts
+C) The study of signs and symbols and their use or interpretation
+D) The study of grammar rules
+E) The study of human anatomy
+
+53.	Who is considered one of the founding fathers of modern semiotics?
+A) Karl Marx
+B) Charles Darwin
+C) Ferdinand de Saussure
+D) Albert Einstein
+E) Max Weber
+
+54.	Which field most commonly uses semiotic analysis today?
+A) Physics
+B) Chemistry
+C) Media and cultural studies
+D) Mathematics
+E) Engineering
+
+55.	In Peirce's semiotics, what are the three types of signs?
+A) Natural, supernatural, artificial
+B) Icon, index, symbol
+C) Word, sound, image
+D) Denotation, connotation, myth
+E) Logical, poetic, emotional
+
+56.	Which alphabet was historically used by early Turkic peoples?
+A) Latin
+B) Cyrillic
+C) Orkhon-Yenisey script (Old Turkic script)
+D) Arabic script only
+E) Greek script
+
+57.	What is a defining characteristic of traditional Turkic culture?
+A) Sedentary farming lifestyle
+B) Maritime navigation
+C) Nomadic pastoralism
+D) Urban industrialization
+E) Slave-based economy
+
+58.	What is the significance of the Orkhon inscriptions?
+A) Religious commandments
+B) Ancient Turkic legal codes
+C) The earliest known written records in a Turkic language
+D) Treaties with China
+E) Medical texts
+
+59.	What does the word "Tengri" refer to in ancient Turkic beliefs?
+A) A type of garment
+B) A sacred book
+C) The sky deity or god of the heavens
+D) A battle strategy
+E) A mountain spirit
+
+60.	What is a "yurt" in Turkic tradition?
+A) A royal title
+B) A traditional horse saddle
+C) A portable round tent used by nomads
+D) A sacred religious relic
+E) A musical instrument
+
+61.	Which musical instrument is commonly found in Turkic folk culture?
+A) Violin
+B) Dombra
+C) Sitar
+D) Oud
+E) Harp
+
+62.	What role did oral poetry and storytelling play in Turkic culture?
+A) It was mainly entertainment for children
+B) It was used to pass time during winter
+C) It preserved history, values, and traditions
+D) It replaced written language entirely
+E) It was imported from neighboring cultures
+
+63.	The epic "Manas" is associated with which Turkic group?
+A) Uighurs
+B) Kazakhs
+C) Uzbeks
+D) Kyrgyz
+E) Tatars
+
+64.	Which of the following empires was founded by a Turkic people?
+A) Roman Empire
+B) Ottoman Empire
+C) Mongol Empire
+D) Han Dynasty
+E) Persian Empire
+
+65.	Which religion had a strong influence on the Turkic peoples before the spread of Islam?
+A) Christianity
+B) Hinduism
+C) Shamanism and Tengrism
+D) Buddhism only
+E) Confucianism
+
+66.	Cultural hybridization refers to:
+A) The loss of national identity
+B) The merging of traditional and modern practices
+C) The rejection of technological advancements
+D) The revival of indigenous languages
+E) The political unification of states
+
+67.	Which ancient philosopher was born in the territory of present Kazakhstan?
+A) Aristotle
+B) Al-Farabi
+C) Ibn Sina
+D) Descartes
+E) Confucius
+
+68.	Which famous Kazakh poet and philosopher wrote "The Book of Words" ("Kara Sozder")?
+A) Shakarim
+B) Saken Seifullin
+C) Abai Kunanbayev
+D) Al-Farabi
+E) Zhambyl Zhabayev
+
+69.	What does the eagle on the Kazakh flag symbolize?
+A) War
+B) Power and freedom
+C) Religion
+D) Agriculture
+E) Peace
+
+70.	Name Kazakh leader who led a major national-liberation uprising in the 19th century:
+A) Ablai Khan
+B) Kenesary Kasymov
+C) Abulkhair Khan
+D) Kerey Khan
+E) Tole Bi
+
+71.	The process of introducing an individual to culture, assimilating existing habits, norms, and values peculiar to a given culture is:
+A) Habits
+B) Canon
+C) Inculturation
+D) Norms
+E) Values
+
+72.	The system of values and norms of behavior characteristic of individual demographic, professional and other groups that does not fundamentally contradict the dominant culture is:
+A) Norms
+B) Religion
+C) Canon
+D) Counterculture
+E) Subculture
+
+73.	Mass culture is the culture of the masses (people), the majority of members of society, a culture that, in principle, cannot generally be at the highest level with the continuity of cultural development (creativity), so it is also known as:
+A) not popular
+B) popular
+C) subculture
+D) elite
+E) individual
+
+74.	The project "Sacred Geography of Kazakhstan" was launched in:
+A) 2017
+B) 2018
+C) 2020
+D) 2022
+E) 2024
+
+75.	The project "Cultural Heritage" was developed in 2003 on the initiative of the President of Kazakhstan N. Nazarbayev. The implementation of the program began in:
+A) 2004
+B) 2006
+C) 2007
+D) 2009
+E) 2010
+
+76.	What is the name of Khodzha Akhmed Yasawi's famous work?
+A) Dīwān-i Hikmat (Compendium of Wisdom)
+B) Blessed knowledge
+C) History
+D) Religion
+E) Royal wisdom
+
+77.	Name the major researcher who traveled to Altai, Semirechye, and Central Asia:
+A) Semenov-Tian-Shansky
+B) Radlov
+C) Velyaminov-Zernov
+D) Dobrossmyslov
+E) Makovetsky
+
+78.	Who composed the music for Altynsarin's poem "Kel, balalar, okylyq" ("Come, children, let's study")?
+A) Zhaya Musa
+B) Birzhan sal
+C) Akan-sere
+D) Ykylas
+E) Mayra
+
+79.	The founder of the lyrical direction in dombra music is:
+A) Kurmangazy
+B) Tattimbet
+C) Dauletkerey
+D) Ykylas
+E) Birzhan
+
+80.	What is the basis of the Kazakh reverence for ancestors?
+A) the cult of ancestors
+B) belief in the protection of aruak (spirits)
+C) unconditional respect for elders
+D) filial duty
+E) sense of duty
+
+81.	What is a characteristic feature of Kazakh society?
+A) complex intra-ethnic structure
+B) belonging to a specific clan (ru)
+C) significance of social status of an individual
+D) complex structure of tribal organization
+E) presence of a heroic ancestor
+
+82.	Which of the following does NOT belong to women's crafts among Kazakhs?
+A) embroidery
+B) carpet weaving
+C) braiding/weaving
+D) wood carving
+E) applique decoration
+
+83.	The spread of Islam in Kazakhstan began in which century?
+A) 6th century
+B) 8th century
+C) 10th century
+D) 11th century
+E) 5th century BCE
+
+84.	The archaeologist who discovered the "Golden Man" of the Sak period:
+A) Akishev, Issyk
+B) Argymbayev, Almaty
+C) Kopylov, Talgar
+D) Mukanova, Aktobe
+E) an archaeologist who concealed his name
+
+85.	Which folk musical instrument is associated with shamanism?
+A) sybyzgy
+B) kobyz
+C) dombra
+D) sherter
+E) syrnai
+
+86.	Which ritual song is performed by a bride?
+A) kórisu
+B) zhoktaw
+C) synsu
+D) kara ólen
+E) zhar-zhar
+
+87.	Which feature characterizes the philosophy of Kazakh Enlightenment classics?
+A) materialism
+B) metaphysics
+C) irrationalism
+D) humanism
+E) teleologism
+
+88.	Which area of Chokan Valikhanov's philosophical views is the most developed?
+A) philosophy of religion
+B) epistemology
+C) ontology
+D) philosophy of history
+E) axiology
+
+89.	The central problem of Abai's philosophy is:
+A) cognition
+B) human being
+C) religion
+D) ontology
+E) metaphysics
+
+90.	How does Abai describe the state of Kazakh society of his time?
+A) as a golden age
+B) he gives no evaluation
+C) as a given
+D) as a stage toward a specific goal
+E) critically, as requiring transformation
+
+91.	From 1898–1928 Shakarim wrote one of his major philosophical works titled "Three …":
+A) admonitions
+B) companions
+C) delusions
+D) truths
+E) moral laws
+
+92.	"Adam bol!" ("Be a human!") – a principle first proclaimed by:
+A) Abai
+B) A. Baitursynov
+C) Ch. Valikhanov
+D) A. Bukeykhanov
+E) Shakarim
+
+93.	Which European thinkers did Abai know well?
+A) Hegel
+B) Kant
+C) Descartes
+D) Bacon
+E) Spinoza
+
+94.	For improving the social organism, Ch. Valikhanov said it is necessary to consider three factors: structure of the tribal organism, conditions of the environment, climate and soil, and …
+A) spread of religion
+B) scale of ignorance
+C) motives and incentives
+D) nature of authority
+E) position of local rulers
+
+95.	The main political stance of the "Alash" party was:
+A) non-violence
+B) connection with sharua (peasants)
+C) clear political program
+D) consideration of people's religiosity
+E) education in the native language
+
+96.	The philosophy of Kazakh Enlightenment is characterized by:
+A) materialism
+B) metaphysics
+C) irrationalism
+D) humanism
+E) idealism
+
+97.	The cult of ancestors among Kazakhs is called:
+A) Umai
+B) Allah
+C) Dingir
+D) Tengri
+E) Aruakh
+
+98.	To which type of civilization does Kazakh culture belong?
+A) Western
+B) Eastern
+C) Central Asian
+D) Middle Eastern
+E) Eurasian
+
+99.	Who contributed to the development and spread of Sufism on the territory of Kazakhstan?
+A) Al-Farabi
+B) Akhmet Yugnaki
+C) Akhmet Yassawi
+D) Mahmud Kashgari
+E) Al-Ghazali
+
+100.	Prominent representatives of Soviet Kazakh culture are:
+A) A. Kunanbayev, Z. Zhabaev, M. Auezov
+B) A. Kunanbayev, Y. Altynsarin, Ch. Valikhanov
+C) Sh. Kudaiberdiev, M. Dulatov
+D) Z. Zhabaev, S. Seifullin, M. Auezov
+E) D. Nurpeisova, Kurmangazy, Dauletkerey
+
+101.	The well-known scholar who deeply studied Kazakh musical art (before the October Revolution):
+A) Castagne A.
+B) Potanin G.
+C) Zataevich A.
+D) Eichhorn A.
+E) Rybakov S.
+
+102.	The famous scholar, linguist, educator, and editor of the newspaper "Kazakh":
+A) Zhumabayev M.
+B) Aimanov J.
+C) Dulatov M.
+D) Asfendiyarov S.
+E) Baitursynov A.
+
+103.	The reformer of the Kazakh alphabet was:
+A) A. Baitursynov
+B) A. Kunanbayev
+C) A. Bokeykhanov
+D) Sh. Kudaiberdiev
+E) I. Altynsarin
+
+104.	Which of the following is NOT a Kazakh epic?
+A) "Koblandy"
+B) "Alpamys"
+C) "Kyz Zhibek"
+D) "Manas"
+E) "Ayman-Sholpan"
+
+105.	Who is the author of the Kazakh national manifesto "Oyan, qazaq!" ("Wake up, Kazakh!")?
+A) M. Dulatov
+B) M. Mukataev
+C) K. Myrzaliev
+D) M. Zhumabayev
+E) A. Zhumabayev
+
+106.	Who introduced the term "mankurt" into scholarly discourse?
+A) R. Park
+B) T. Parsons
+C) Ch. Aitmatov
+D) M. Mead
+E) V. Pareto
+
+107.	Ancient nomads on the territory of Kazakhstan include:
+A) Turks
+B) Mongols
+C) Naimans
+D) Sak
+E) Pashtuns
+
+108.	The Kazakh writer, author of the epic novel "The Path of Abai":
+A) M. Auezov
+B) S. Mukanov
+C) I. Yessenberlin
+D) G. Mustafin
+E) S. Seifullin
+
+109.	A bright representative of heroic zhyrau poetry:
+A) Koblandy
+B) Asan Kaigy
+C) Bukhar zhyrau
+D) Balasaguni
+E) Kaztugan
+
+110.	Kurmangazy's first mentor in dombra playing was:
+A) Uzak
+B) Khanbazar
+C) Alikey
+D) Makar
+E) Turyp
+
+111.	Which factor played the most significant role in the formation of nomadic Kazakh culture?
+A) Climate and steppe ecology
+B) Urbanization
+C) Influence of Roman civilization
+D) Geographical isolation
+E) Decline of agriculture
+
+112.	The concept of "Tengri" in early Turkic culture refers to:
+A) Ancestor
+B) Supreme Sky Deity
+C) Heroic warrior
+D) Prophet
+E) Nature spirit
+
+113.	The "zhol" (жол) in Kazakh traditional culture most accurately means:
+A) Battle
+B) Path, moral code
+C) Clan name
+D) Ritual dance
+E) Sacrifice
+
+114.	The earliest written evidence of Turkic languages is found in:
+A) Sogdian manuscripts
+B) Orkhon-Yenisei inscriptions
+C) Persian chronicles
+D) Arabic letters
+E) Chinese Tang texts
+
+115.	The term "ethnoculture" refers to:
+A) Individual creativity
+B) Cultural norms of a specific ethnic group
+C) World globalization
+D) Urban lifestyle
+E) Social mobility
+
+116.	Which Kazakh custom is performed to express gratitude?
+A) Tusau kesu
+B) Shashu
+C) Betashar
+D) Asar
+E) Syngsu
+
+117.	What is characteristic of oral nomadic culture?
+A) Dominance of written literature
+B) Architectural monumentalism
+C) Strong epic storytelling traditions
+D) Printing of books
+E) Latin script development
+
+118.	Who is considered the founder of the Kazakh Khanate?
+A) Abylay Khan
+B) Kasym Khan
+C) Kerei and Zhanibek
+D) Tauke Khan
+E) Esim Khan
+
+119.	"Zheti ata" tradition establishes rules of:
+A) Military hierarchy
+B) Kinship and marriage restrictions
+C) Trade relations
+D) Religious practices
+E) Hospitality
+
+120.	Which city was a major cultural center of the Great Silk Road on Kazakh territory?
+A) Uralsk
+B) Taldykorgan
+C) Otyrar
+D) Kokshetau
+E) Pavlodar
+
+121.	The primary genre of Kazakh oral literature is:
+A) Chronicle
+B) Epic (epos)
+C) Poetic drama
+D) Novel
+E) Haiku
+
+122.	The term "bi" in traditional Kazakh society refers to:
+A) Warrior
+B) Judge and wise mediator
+C) Musician
+D) Shaman
+E) Artisan
+
+123.	Which of the following is a Kazakh heroic epic?
+A) "Shahnameh"
+B) "Alpamys"
+C) "Layli-Majnun"
+D) "Mahabharata"
+E) "Odyssey"
+
+124.	The Kazakh yurt is an example of:
+A) Stationary architecture
+B) Artistic abstraction
+C) Mobile dwelling adapted to nomadism
+D) Religious structure
+E) Military shelter
+
+125.	Which instrument traditionally accompanied shamans?
+A) Dombra
+B) Kobyz
+C) Zhetigen
+D) Sybyzgy
+E) Sherter
+
+126.	The philosophy of Abai emphasizes primarily:
+A) Mysticism
+B) Material acquisition
+C) Humanism and moral perfection
+D) Polytheism
+E) Military heroism
+
+127.	In Kazakh culture "Asar" means:
+A) Bride's farewell
+B) Communal mutual help
+C) Funeral ritual
+D) Horse race
+E) Wedding feast
+
+128.	"Zhangyrtu" (modernization) in modern Kazakhstan refers to:
+A) Isolation from global culture
+B) Return to medieval traditions
+C) Integration of heritage with modern progress
+D) Rejection of national identity
+E) Decline of education
+
+129.	Which thinker is known as the "Second Teacher" after Aristotle?
+A) Ibn Sina
+B) Al-Farabi
+C) Attar
+D) Al-Kindi
+E) Gazali
+
+130.	Sufism contributed to:
+A) Industrialization
+B) Development of spiritual ethics
+C) Growth of military elite
+D) Urban destruction
+E) Decline of literature
+
+131.	Which concept expresses gratitude in Kazakh values?
+A) Rakhmet
+B) Zhasau
+C) Aruak
+D) Kydyr
+E) Zheke
+
+132.	Kazakh ornaments "koshkar muyiz" symbolize:
+A) Female beauty
+B) Military courage
+C) Ram's horns — strength and prosperity
+D) Celestial sky
+E) Death and rebirth
+
+133.	"Book of Words" ("Kara Sozder") was written by:
+A) Shakarim
+B) Abai
+C) Magzhan
+D) Bukhar zhyrau
+E) Dulatov
+
+134.	The main marriage prohibition in Kazakh culture is:
+A) Marriage with foreigners
+B) Marriage between social classes
+C) Marriage within seven ancestors (zheti ata)
+D) Marriage under 18
+E) Marriage without dowry
+
+135.	The traditional Kazakh worldview is best described as:
+A) Rational-materialistic
+B) Nomadic-holistic and nature-centered
+C) Urban-industrial
+D) Mediterranean
+E) Secular-technocratic
+
+136.	The "Golden Man" symbolizes:
+A) Early Christianity
+B) Decline of nomadism
+C) High craftsmanship of Saks civilization
+D) Mongol occupation
+E) Medieval Islamization
+
+137.	Which Kazakh poet is associated with the national awakening movement?
+A) M. Auezov
+B) S. Seifullin
+C) M. Zhumabayev
+D) A. Kunanbayev
+E) S. Mukanov
+
+138.	"Kyz uzatu" is a ceremony related to:
+A) Funeral
+B) Childbirth
+C) Bride's departure from her family
+D) Horse sacrifice
+E) Victory celebration
+
+139.	The main functions of music in nomadic culture include:
+A) Only entertainment
+B) Military signals, rituals, storytelling
+C) Banking, trade, taxation
+D) Animal domestication
+E) Farming development
+
+140.	Culture is generally defined as:
+A) a biological characteristic
+B) a system of learned behaviors
+C) a natural instinct
+D) a genetic code
+E) a spontaneous habit
+
+141.	The term "cultural relativism" refers to:
+A) judging all cultures by Western standards
+B) viewing cultures based on global norms
+C) understanding a culture within its own context
+D) rejecting all cultural differences
+E) promoting one universal culture
+
+142.	Which of the following is an example of intangible cultural heritage?
+A) monuments
+B) traditional songs
+C) archaeological sites
+D) manuscripts
+E) architectural complexes
+
+143.	The Great Silk Road primarily contributed to:
+A) religious isolation
+B) the decline of trade
+C) cultural exchange
+D) political stagnation
+E) agricultural collapse
+
+144.	A dominant culture is:
+A) a minority culture
+B) the culture of immigrants
+C) the culture holding power in a society
+D) an ancient extinct culture
+E) a purely religious culture
+
+145.	The "Kazakh Yurt" is primarily associated with:
+A) settled agricultural life
+B) nomadic lifestyle
+C) urban architecture
+D) religious rituals
+E) industrial production
+
+146.	Tengrianism is best described as:
+A) a branch of Buddhism
+B) a form of monotheism centered around the sky deity
+C) a Christian doctrine
+D) a type of shamanic dance
+E) a philosophical school of antiquity
+
+147.	The main social unit in traditional Kazakh society was:
+A) the nuclear family
+B) the tribe (ru)
+C) the urban commune
+D) the monastery
+E) the merchant guild
+
+148.	Which feature is typical of nomadic culture?
+A) large stationary cities
+B) intensive agriculture
+C) high mobility
+D) caste system
+E) monumental stone architecture
+
+149.	Intercultural communication studies:
+A) genetic adaptation
+B) exchange of cultural values and meanings
+C) geological processes
+D) economic taxation
+E) legal frameworks
+
+150.	Who defined culture as "a complex whole that includes knowledge, belief, art, morals, law, and custom"?
+A) Max Weber
+B) Edward Tylor
+C) Emile Durkheim
+D) Clifford Geertz
+E) Franz Boas
+
+151.	High culture usually refers to:
+A) popular media
+B) mass entertainment
+C) elite artistic achievements
+D) informal folklore
+E) children's culture
+
+152.	The global spread of fast-food chains is an example of:
+A) cultural isolation
+B) de-globalization
+C) cultural homogenization
+D) reverse diffusion
+E) cultural taboo
+
+153.	The main feature of industrial civilization is:
+A) tribal governance
+B) machine-based production
+C) nomadic herding
+D) sacred kingship
+E) oral communication only
+
+154.	Which term refers to symbols, values, norms, and language?
+A) material culture
+B) economic culture
+C) symbolic culture
+D) biological culture
+E) ecological culture
+
+155.	Which of the following is a world intangible heritage site related to Kazakhstan?
+A) Machu Picchu
+B) The Great Wall
+C) Traditional dombra music
+D) Stonehenge
+E) Petra
+
+156.	The term "myth" in cultural studies means:
+A) only a false story
+B) a narrative that explains the world through symbols
+C) a scientific law
+D) a political manifesto
+E) an economic strategy
+
+157.	National identity consists of:
+A) only economic interests
+B) only political institutions
+C) shared history, language, and cultural symbols
+D) random events
+E) individual emotions
+
+158.	Cultural globalization includes:
+A) isolation of societies
+B) increased interconnectedness of cultures
+C) prohibition of travel
+D) destruction of diversity
+E) elimination of national symbols
+
+159.	A worldview system that explains existence and includes creation myths is called:
+A) astronomy
+B) mythology
+C) algebraic model
+D) linguistic code
+E) ecological plan
+
+160.	The UNESCO Convention of 2003 focuses on:
+A) protection of endangered animals
+B) safeguarding intangible cultural heritage
+C) global trade regulations
+D) environmental policy
+E) international security
+`
+
+// Answer key for Culturology (0-indexed: A=0, B=1, C=2, D=3, E=4)
+const CULTUROLOGY_ANSWER_KEY: Record<number, number> = {
+  1: 2, 2: 2, 3: 2, 4: 2, 5: 2, 6: 4, 7: 2, 8: 2, 9: 1, 10: 1,
+  11: 2, 12: 0, 13: 3, 14: 0, 15: 2, 16: 2, 17: 2, 18: 1, 19: 2, 20: 1,
+  21: 1, 22: 2, 23: 0, 24: 2, 25: 2, 26: 2, 27: 1, 28: 2, 29: 1, 30: 2,
+  31: 1, 32: 4, 33: 1, 34: 1, 35: 2, 36: 2, 37: 1, 38: 2, 39: 1, 40: 3,
+  41: 2, 42: 2, 43: 1, 44: 2, 45: 1, 46: 2, 47: 2, 48: 2, 49: 2, 50: 2,
+  51: 1, 52: 2, 53: 2, 54: 2, 55: 1, 56: 2, 57: 2, 58: 2, 59: 2, 60: 2,
+  61: 1, 62: 2, 63: 3, 64: 1, 65: 2, 66: 1, 67: 1, 68: 2, 69: 1, 70: 1,
+  71: 2, 72: 4, 73: 1, 74: 0, 75: 0, 76: 0, 77: 1, 78: 0, 79: 1, 80: 1,
+  81: 1, 82: 3, 83: 1, 84: 0, 85: 1, 86: 2, 87: 3, 88: 3, 89: 1, 90: 4,
+  91: 3, 92: 0, 93: 4, 94: 2, 95: 4, 96: 3, 97: 4, 98: 4, 99: 2, 100: 3,
+  101: 2, 102: 4, 103: 0, 104: 3, 105: 0, 106: 2, 107: 3, 108: 0, 109: 2, 110: 0,
+  111: 0, 112: 1, 113: 1, 114: 1, 115: 1, 116: 1, 117: 2, 118: 2, 119: 1, 120: 2,
+  121: 1, 122: 1, 123: 1, 124: 2, 125: 1, 126: 2, 127: 1, 128: 2, 129: 1, 130: 1,
+  131: 0, 132: 2, 133: 1, 134: 2, 135: 1, 136: 2, 137: 2, 138: 2, 139: 1, 140: 1,
+  141: 2, 142: 1, 143: 2, 144: 2, 145: 1, 146: 1, 147: 1, 148: 2, 149: 1, 150: 1,
+  151: 2, 152: 2, 153: 1, 154: 2, 155: 2, 156: 1, 157: 2, 158: 1, 159: 1, 160: 1
+}
 
 
 // ==========================================
 // EXPORTS
 // ==========================================
 
-export const QUESTIONS_PHILOSOPHY = parseQuestions(PHILOSOPHY_RAW_DATA, PHILOSOPHY_ANSWER_KEY);
-export const QUESTIONS_PSYCHOLOGY = parseQuestions(PSYCHOLOGY_RAW_DATA, PSYCHOLOGY_ANSWER_KEY);
+export const QUESTIONS_PHILOSOPHY = parseQuestions(PHILOSOPHY_RAW_DATA, PHILOSOPHY_ANSWER_KEY)
+export const QUESTIONS_PSYCHOLOGY = parseQuestions(PSYCHOLOGY_RAW_DATA, PSYCHOLOGY_ANSWER_KEY)
+export const QUESTIONS_CULTUROLOGY = parseQuestions(CULTUROLOGY_RAW_DATA, CULTUROLOGY_ANSWER_KEY)
