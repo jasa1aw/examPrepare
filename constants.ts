@@ -58,9 +58,6 @@ const parseQuestions = (rawData: string, answerKey?: Record<number, number>): Qu
   return questions
 }
 
-// ==========================================
-// PHILOSOPHY DATA
-// ==========================================
 
 const PHILOSOPHY_RAW_DATA = `
 1.	<question>The specificity of the mythological worldview:
@@ -1490,811 +1487,564 @@ const PHILOSOPHY_ANSWER_KEY: Record<number, number> = {
 
 
 const PSYCHOLOGY_RAW_DATA = `
-1. What is the literal meaning of the word "psychology"?
-Study of psychopathology
-Study of unconsciousness
-Study of consciousness
-Study of the soul
-Study of emotions
+1. ________ focuses on the role of different parts of brain in regulating feelings, memories, emotions and other aspects of behaviour.
+Cognitive approach
+Humanistic approach
+Biological approach
+Psychoanalytic approach
 
-2. What is the main subject of general psychology?
-Human’s bad emotions
-Mechanisms of the functioning of the psyche
-Biological processes in the brain
-Social interactions
-Animal’s behavior
+2. Focus of the ________ is on the information processing capacity of the individual.
+Cognitive approach
+Biological approach
+Humanistic approach
+Psychoanalytic approach
 
-3. Who established the first experimental psychology laboratory?
-Aristotle
-Wilhelm Wundt
-Ivan Pavlov
-Carl Jung
-John Watson
+3. ________ assumes that the person is active and self-actualizing agent and has a choice in deciding his behavior.
+Psychoanalytic approach
+Humanistic approach
+Biological approach
+Cognitive approach
 
-4. What is the primary focus of behaviorism?
-Cognitive processes
-Emotional development
-Observable behavior
-Personality development
-Neuroscience
+4. According to the ________ majority of human behaviours are triggered by unconscious motivation.
+Psychoanalytic approach
+Humanistic approach
+Behaviouristic approach
+Cognitive approach
 
-5. What are the research methods used in modern psychology?
-Myths and legends
-Psychoanalysis only
-Introspection and logic
-Experimental and diagnostic techniques
-Observations only
+5. The unit of analysis for the ________ is explicit, objective and overt behaviour and its relationship with environmental stimulation
+Behaviouristic approach
+Humanistic approach
+Psychoanalytic approach
+Cognitive approach
 
-6. Which school of psychology focuses on the connection between stimulus and response?
-Depth psychology
-Behaviorism
-Gestalt psychology
-Cognitive psychology
-Existential psychology
+6. Observation is divided into ________ and ________ observation depending on the role of observer.
+Participant, non-participant
+Manipulating, controlling
+Individual
+Group
 
-7. How is psychology categorized as a science?
-It studies only philosophical ideas.
-It observes, describes, predicts, and explains behavior and mental processes.
-It focuses solely on experimental findings.
-It rejects natural sciences.
-It relies exclusively on introspection.
+7. In an experiment the experimenter studies the effect of one variable on the other by deliberately ________ and ________ one variable.
+Participant, non-participant
+Manipulating, controlling
+Manipulating, Manipulating
+All answer are correct
 
-8. What is introspection?
-Observing others' behavior
-Looking inward at oneself
-Asking questions in a survey
-Conducting experiments
-Recording natural events
+8. In the case study method the main unit of analysis is the ________ and his experiences across different contexts in life.
+Individual
+Group/ Individual people
+group people
+All answer are correct
 
-9. Who used introspection to study consciousness?
-Burrhus Skinner
-Wilhelm Wundt
+9. The variable which is controlled and manipulated by the experimenter is called ________ variable and the variable on which its impact is studied is known as ________ variable.
+Independent, dependent
+Independent, Independent
+Dependent, dependent
+All answer are correct
+
+10. ————————— method is generally used to study the pattern of opinions, attitudes, beliefs and values of the people.
+Survey
+test
+Interview
+All answer are correct
+
+11. A ————————— ——————— provides an objective assessment of different qualities and limitations of the individual.
+Psychological test
+Interview
+Survey
+All answer are correct
+
+12. ————————————— of a test refers to its consistency in terms yielding the scores from the representative sample for which it has been designed.
+Reliability
+Psychological test
+Validity
+All answer are correct
+
+13. —————————— of a test reveals the extent to which the test measures what it claims to measure.
+Validity
+Psychological test
+Reliability
+All answer are correct
+
+14. A ———————— —————— uses ambiguous, vague and unstructured stimuli such as pictures, inkblots, drawings, incomplete sentences.
+Psychological test
+Projective test
+Interview
+All answer are correct
+
+15. The items (questions) of the questionnaire can be either in ———————— ———— —— form or in —————————- form.
+Continuously, brief
+repeated questions, different questions
+Close-ended, open-ended
+All answer are correct
+
+16. Interview as one of the techniques of data collection is often referred as a —— ———————— ———————— between two persons with a set objective.
+Face –to-face interactionGfdgdf
+Structured interview
+Unstructured interview
+All answer are correct
+
+17. In the case of ———————————— —————————— the questions are already framed with the possible option
+All answer are correct
+Structured interview
+Face –to-face interaction
+Unstructured interview
+
+18. ——————————— ————————————— comprises of a variety of open-ended questions and the interviewee gives his or her responses as
+Unstructured interview
+freely as possible.
+Face –to-face interaction
+Structured interview
+
+19. The process by which a person moves towards fulfilment of wants is called:
+motivation
+need
+incentive
+goal
+
+20. Secondary needs are acquired through
+social interaction
+biological needs
+intrinsic procession
+innate needs
+
+21. According to Maslow the most basic needs are:
+love
+biological
+safety
+cognitive
+
+22. Reema gets Rs. 20 for every good grade she obtains in school. Reema is receiving:
+extrinsic motivation
+intrinsic motivation
+primary need
+growth need
+
+23. Ashok has a high need for …………….. because he likes to study and investigate new things.
+love
+nurturance
+achievement
+exploration
+
+24. Who developed the personality theories of social cognitive that included observational learning, self-efficacy, situational influences, and cognitive processes?
+Albert Bandura
 Abraham Maslow
+Sigmund Freud
+Erik Erikson
+
+25. The psychoanalytic perspective of personality emphasizes the importance of
+situational influences
+cognitive processes
+observational learning, self-efficacy
+early childhood experiences and the unconscious mind
+
+26. Who was the first to introduce the concepts of introversion and extroversion
+Carl Jung
+Erik Erikson
+Alfred Adler
+Karen Horney
+
+27. The theory Attitudes Versus Actions: LaPiere's (1934) Classic Study suggested that
+attitudes correlate with behaviors.
+Attitudes correlate with behaviors depending on the situation
+All answers are correct
+attitudes did not correlate with behaviors.
+
+28. What is correct about temperament.
+It is the character of a person depending on the social environment
+are human behaviors depending on the situation
+It is considered to have a biological basis
+all answers are correct
+
+29. Sensation and perception are closely related processes. Which is affected by a person's culture and experiences?
+both sensation and perception
+only perception
+neither sensation nor perception
+only sensation
+
+30. What are values?
+Ideas, thoughts, and actions that are important to us
+An object that we like
+Strange thoughts
+Something that we enjoy doing
+
+31. What is a moral value?
+set of principles guiding us to evaluate what is right or wrong
+if it is important for acquiring something else
+None of these
+A value that shows you how to do something
+
+32. What is a Social Norm?
+System of rules created and enforced through social or governmental institutions to regulate behavior
+Are the unwritten rules of behavior that are considered acceptable in a group or society
+these are the rights and obligations of people
+All answers are correct
+
+33. What is Thinking?
+Thinking is the mental activity that allows us to understand
+All answers are correct
+Thinking is the mental activity that allows us to understand, process, and communicate information.
+The process of considering or reasoning about something.
+
+34. Basic Elements of Thinking
+analysis, synthesis, generalization.
+knowledge, comprehension, application.
+symbols, concepts, and prototypes.
+all answers are correct
+
+35. The process of interaction with people and the environment is …
+All of answer is correct
+Conversation
+Communication
+interaction
+
+36. The most commonly employed tool of communication is …
+Language
+Emotion
+Act
+All answer is correct
+
+37. Anything that interferes with the sender's creating and delivering a message and the receiver interpreting the message is called__
+distortion
+distraction
+netiquette
+communication
+
+38. Communication is always a ___ way process.
+Two
+one
+three
+four
+
+39. This type of communication is speaking to teachers and students.
+oral
+written
+non verbal
+body language
+
+40. This type of communication includes sending emails, typing reports and letters.
+written
+oral
+verbal
+non verbal
+
+41. Delivering a message by means other than speaking or writing is called ___________ communication.
+Verbal
+non verbal
+written
+oral
+
+42. Can a person's perception be a barrier to communication
+Yes
+No
+Depending on the situation
+All of answer is correct
+
+43. Who created the Linear Models of communication?
+R. West, L. Turner
+K. Thomas, R.Kilmann
+K. Shannon, W. Weaver
+All of answer is correct
+
+44. In which model of communication, the sender is the source of the message and does not wait the feedback from receiver.
+Interactional Models of Communication
+Transactional Models of Communication
+Linear Models of Communication
+All of answer is correct
+
+45. The author of the theory conflict resolution strategies that people use to handle conflict, including avoiding, defeating, compromising, accommodating, and collaborating.
+K. Shannon, W. Weaver
+R. West, L. Turner
+K. Thomas, R.Kilmann
+All of answer is correct
+
+46. According Louis R. Pondy research there are the five stages of a conflict episode are identified:
+Latent Phase, perceived Phase, differentiation Phase, Initiation Phase, Resolution Phase.
+Prelude to conflict, Triggering Event, felt conflict Event, manifest conflict, and conflict aftermath or conditions.
+latent conflict (conditions), perceived conflict (cognition), felt conflict (affect), manifest conflict (behavior), and conflict aftermath (conditions).
+Triggering Event, felt conflict Event, manifest conflict, and conflict aftermath or conditions.
+
+47. A stressor is...
+Any person, object, situation or event that produces stress.
+a state of physiological and psychological arousal.
+a psychological factor that always originates from the individual
+an external factor that originates from the environment
+
+48. What does adrenaline do to the body during the alarm stage?
+calms the body down
+makes a person tired
+makes you feel good
+triggers the fight/flight response
+
+49. Rio has broken up with his girlfriend. He is feeling very stressed about suddenly becoming single and the end of their relationship. A physical sign of stress that Rio might exhibit is:
+headaches
+denial
+panic
+sleep disturbances
+
+50. What part of the nervous system is activated by stress?
+sympathetic
+parasympathetic
+somatic
+central
+
+51. Stress has been shown to put people at a higher risk for
+unplanned pregnancy
+schizophrenia
+Alzheimer's
+heart attack and stroke
+
+52. Which of these might cause stress?
+All answers are correct
+Planning a wedding
+Traveling for vacation
+Driving during rush hour
+
+53. The "stress response" prepares your body to:
+Fight or run
+Sleep
+Eat more
+All answers are correct
+
+54. Chronic stress affects sexual health in:
+Both
+All answers are correct
+Man
+Women
+
+55. ———————— ——————— focuses on the role of different parts of brain in regulating feelings, memories, emotions and other aspects of behaviour.
+Cognitive approach
+Humanistic approach
+Psychoanalytic approach
+Biological approach /neuropsychological approach
+
+56. Which psychological approach emphasizes the study of mental processes such as perception and memory?
+Cognitive approach
+Humanistic approach
+Psychoanalytic approach
+Biological approach
+
+57. ———————————— ————————— assumes that the person is active and self-actualizing agent and has a choice in deciding his behavior.
+Humanistic approach
+Psychoanalytic approach
+Biological approach
+Cognitive approach
+
+58. Who developed the theory of psychoanalysis?
 Ivan Pavlov
 Albert Bandura
+Carl Jung
+Sigmund Freud
 
-10. Which method involves viewing behavior of others without manipulation?
-Observation
-Case study
-Testing
+59. Observation is divided into ————————— and ————————— ——— observation depending on the role of observer.
+Participant, non-participant
+Controlled, uncontrolled
+Structured, unstructured
+Overt, covert
+
+60. In which year was the first psychological laboratory established by Wilhelm Wundt?
+1900
+1950
+2000
+1879
+
+61. What is the main unit of analysis in the case study method?
+Individual and his experiences across different contexts in life
+Group of individuals
+Statistical data
+Community dynamics
+
+62. ————————— method is generally used to study the pattern of opinions, attitudes, beliefs and values of the people.
 Survey
-Introspection
+Interview
+Test
+All answer is correct
 
-11. What type of data can be obtained through observation?
-Only qualitative
-Only quantitative
-Both qualitative and quantitative
-Neither qualitative nor quantitative
-Hypothetical data
+63. Which of the following individuals is considered the father of modern psychology?
+B.F. Skinner
+Sigmund Freud
+Carl Rogers
+Wilhelm Wundt
 
-12. What is a structured survey?
-Survey with random questions
-Survey with a clear purpose and standardized questions
-Survey that uses technical terms
-Survey with no specific goal
-Survey based only on demographical data
+64. Who conducted the Little Albert experiment?
+Carl Rogers
+John B. Watson
+Sigmund Freud
+B.F. Skinner
 
-13. What are independent variables in an experiment?
-Variables that remain constant
-Variables that are manipulated by the researcher
-Variables that are measured as outcomes
-Variables that cannot change
-Randomly selected variables
+65. The items (questions) of the questionnaire can be either in ———————— ———— —— form or in —————————- form.
+open ended; close ended
+personal essay; structured
+descriptive; numerical
+analytical; intuitive
 
-14. In a psychological experiment, what is a dependent variable?
-A variable that is manipulated by the researcher
-A variable that remains constant throughout the study
-A variable that is measured as the outcome of the experiment
-A variable that cannot change under any circumstances
-A variable selected randomly without control
+66. Interview as one of the techniques of data collection is often referred as a ————— ———— ————————— ————————— between two persons with a set objective.
+written formal conversation
+Face –to-face interaction
+spontaneous emotional reaction
+casual social meeting
 
-15. What is the first step in the scientific method?
-Propose a hypothesis
-Observation
-Publish results
-Build a theory
-Test a variable
+67. Structured interview is characterized by:
+Unplanned and spontaneous questions
+Flexible and changing structure
+Pre-determined questions in a fixed order
+Use of storytelling techniques
 
-16. What is the main purpose of using methods in psychology?
-To avoid scientific rules
-To study unrelated phenomena
-To manipulate behavior
-To teach ethical principles
-To reach a specific research aim
+68. What was the main goal of the Little Albert experiment?
+To study moral development in children
+To examine memory capacity in infants
+To demonstrate classical conditioning in humans
+To analyze attachment between mother and child
 
-17. What defines the observation method in psychology?
-Direct manipulation of variables
-Recording behavior as it naturally occurs
-Asking participants structured questions
-Analyzing dreams and fantasies
-Conducting long-term case histories
+69. The process by which a person moves towards fulfillment of wants is called:
+Motivation
+Adaptation
+Learning
+Conditioning
 
-18. What is typical for a case study in psychology?
-Short questionnaires given to random large samples
-In-depth analysis of a single person or a small group
-Controlled laboratory manipulation with unpredictable effects
-Measuring behavior at one single moment
-Using random assignment to groups
+70. According to Maslow, the most basic needs are:
+Safety
+Biological
+Socialization and love
+Esteem and self-actualization
 
-19. What is a key feature of the interview method?
-Participants write anonymous responses by email
-Behavior is measured through body sensors
-Direct verbal communication with the participant
-Long-term tracking of development
-Statistical comparison of variables in its process
+71. Who developed the personality theories of social cognitive that included observational learning, self-efficacy, situational influences, and cognitive processes?
+Sigmund Freud
+Carl Rogers
+Albert Bandura
+B.F. Skinner
 
-20. What does testing in psychology typically involve?
-Measuring behavior over long periods to detect developmental trends
-Observing individuals in natural settings without intervention
-Administering standardized tasks to assess abilities, traits, or skills
-Conducting in-depth interviews to explore subjective experiences
-Observing individuals in setting with intervention
+72. The psychoanalytic perspective of personality emphasizes the importance of
+situational influences.
+early childhood experiences and the unconscious mind
+observational learning, self-efficacy.
+cognitive processes
 
-21. Which statement correctly distinguishes longitudinal from cross-sectional studies?
-Longitudinal and cross-sectional studies usually study one participant’s case
-Longitudinal studies rely on experiments; cross-sectional studies rely on observations
-Longitudinal studies follow the same participants across a long period; cross-sectional studies compare different age groups at a single point in time
-Cross-sectional studies track individuals for years; longitudinal studies measure them only once
-Both methods require laboratory conditions to collect reliable data
+73. Who was the first to introduce the concepts of introversion and extroversion?
+Sigmund Freud
+Carl Jung
+Alfred Adler
+Erik Erikson
 
-22. What does a correlational study investigate?
-The accuracy of psychological tests across different cultures
-Detailed personal history of a single individual
-Statistical relationships between two or more variables
-Changes in behavior caused by experimental manipulation
-Immediate emotional reactions in controlled settings
+74. What was the main finding of the learned helplessness experiment?
+Animals prefer social environments.
+Animals can develop new skills quickly.
+Animals can become passive when they feel they have no control
+Animals can learn to escape from stress
 
-23. What is motivation?
-A method to plan tasks.
-The process that initiates, guides, and maintains goal-oriented behaviors.
-A technique for managing emotions.
-A form of reward system.
-A cognitive assessment of outcomes.
+75. What is the primary focus of communication theory in psychology?
+Analyzing how information is transmitted and received
+Understanding how people learn.
+Exploring emotions.
+Studying brain functions
 
-24. Which motivation theory suggests that behaviors are motivated by instincts?
-Drive Theory
-Instinct Theory
-Self-Determination Theory
-Humanistic Theory
-Expectancy Theory
+76. What is important for successful communication?
+Ignoring non-verbal signals.
+High speed of information transmission.
+Understanding the message
+Using complex words
 
-25. What is a key concept of Drive Theory?
-People are motivated by their instincts.
-People act to reduce internal tension caused by unmet needs.
-People aim to achieve self-actualization.
-People are motivated by autonomy and competence.
-People always act for rewards.
+77. The most commonly employed tool of communication is:
+Emotion
+Act
+Language
+Non-verbal cues
 
-26. What is a limitation of Instinct Theory of Motivation?
-It doesn’t explain behaviors, it just describes it.
-It doesn’t identify specific instincts.
-It overemphasizes social factors.
-It ignores physiological needs.
-It fails to consider emotional influences.
+78. Communication is always a ___ way process.
+One
+Two
+Multi
+Unidirectional
 
-27. What are the three key elements of Expectancy Theory of Motivation?
-Effort, action, and reaction
-Valence, instrumentality, and expectancy
-Intrinsic, extrinsic, and situational motivation
-Autonomy, competence, and relatedness
-Emotion, logic, and strategy
+79. What is non-verbal communication primarily concerned with?
+The use of words and language
+Body language and facial expressions
+Written communication in formal settings
+The role of speech in social interaction
 
-28. What does Maslow’s hierarchy of needs represent?
-A list of biological drives.
-Levels of motivations based on human needs.
-Stages of emotional development.
-Steps to achieve cognitive growth.
-A method for intrinsic motivation.
+80. What does psychology study?
+Mental processes and behavior of individuals and groups
+Only brain anatomy and physiology
+Patterns of social interaction only
+Emotional responses in animals only
 
-29. What is an example of extrinsic motivation?
-Solving a puzzle for fun
-Studying to earn a prize
-Reading a book for relaxation
-Learning to satisfy curiosity
-Exploring new skills for personal growth
+81. Which research method involves systematic observation of behavior in natural conditions without influencing it?
+Laboratory experiment
+Psychological testing
+Case study
+Naturalistic observation
 
-30. Which strategy would be the best for motivating others in a team?
-Criticize their weaknesses.
-Set goals and provide support.
-Avoid assigning responsibility.
-Devalue their achievements
-Focus solely on personal achievements.
+82. Which psychological approach studies only observable behavior?
+Psychoanalytic
+Behaviorist
+Humanistic
+Cognitive
 
-31. Which of the following is the correct order of needs in Maslow’s hierarchy from the most basic to the highest?
-Self-actualization, Esteem, Love and Belonging, Safety, Physiological
-Physiological, Safety, Love and Belonging, Esteem, Self-actualization
-Physiological, Love and Belonging, Safety, Esteem, Self-actualization
-Safety, Physiological, Love and Belonging, Esteem, Self-actualization
-Esteem, Physiological, Safety, Love and Belonging, Self-actualization
+83. Which approach focuses on unconscious processes?
+Cognitive
+Psychoanalytic
+Behaviorist
+Humanistic
 
-32. Which of the following best describes Mihaly Csikszentmihalyi's concept of "flow"?
-A state of relaxation achieved through mindfulness and deep breathing.
-A state of complete absorption in an activity, where time feels altered, and the task is optimally challenging.
-A mindset focused on achieving external rewards and recognition.
-A process of multitasking effectively to maximize productivity.
-A mental state induced by repetitive physical activity.
+84. Which approach views a person as striving for self-actualization?
+Humanistic
+Behaviorist
+Biological
+Cognitive
 
-33. According to the excitement theory of motivation, what is the explanation people are more motivated to some activities rather to others?
-Because they try to balance energy levels through activities of varying intensity
-Because their behavior is mainly determined by biological reflexes
-Because they try to maintain an optimal personal level of excitement
-Because motivation depends only on external rewards and punishments
-Because relaxation activities are always more motivating than stimulating ones
+85. Which approach studies thinking, memory, and attention?
+Cognitive
+Psychoanalytic
+Humanistic
+Behaviorist
 
-34. Which situation is most likely to produce flow according to American psychologist Csikszentmihalyi?
-When tasks are either too simple causing boredom, or too difficult causing anxiety
-When tasks are extremely easy and relaxing
-When challenges match personal skills, creating full focus and enjoyment
-When external rewards are the primary motivator
-When activities are done without concentration or clear goals
+86. Which approach focuses on a person's inner experience and feelings?
+Behavioral
+Humanistic
+Cognitive
+Biological
 
-35. According to Self-Determination Theory, which of the following are the three needs which shape internal motivation?
-Competence, connection, and autonomy
-Achievement, power, and pleasure
-Safety, security, and comfort
-Recognition, reward, and status
-Curiosity, imagination, and creativity
-
-36. Which type of motivation is increased when basic psychological needs are satisfied due to Self Determination Theory?
-Intrinsic motivation
-Extrinsic motivation
-Social motivation
-Biological motivation
-Random motivation
-
-37. What does self-determination mean in psychology?
-The ability to make choices and control one’s own behavior
-Acting only under pressure from external rewards or punishments
-Following instincts without conscious thought
-Relying entirely on others to make decisions
-Randomly choosing actions without purpose
-
-38. What does self-actualization refer to in psychology?
-Achieving material success, social recognition
-Acting without goals or planning
-Fully realizing personal potential by developing talents
-Following others’ directions in every decision
-Avoiding challenges and staying within comfort zones
-
-39. What is an example of intrinsic motivation?
-Solving a puzzle for personal enjoyment
-Studying to earn a prize
-Participating in a contest for a trophy
-Working to receive a salary
-Completing tasks to gain social recognition
-
-40. What is the main difference between intrinsic and extrinsic motivation?
-Intrinsic comes from personal satisfaction; extrinsic is from external rewards
-Intrinsic depends on social approval; extrinsic on personal interest
-Intrinsic is always stronger than extrinsic
-Extrinsic comes from habits; intrinsic comes from instincts
-Extrinsic never involves rewards
-
-41. What does cognitive psychology study?
-Physiological processes in the body.
-The interaction of human thinking, emotions, creativity, language, and problem-solving.
-Genetic inheritance and human evolution.
-Animal behavior in natural environments.
-The influence of society on individual behavior.
-
-42. What is an example of a cognitive process?
-Breathing and blood circulation.
-Recognizing environmental stimuli and solving problems.
-Distributing energy in the body.
-Regulating body temperature.
-Producing hormones.
-
-43. What is the difference between hot and cold cognition?
-Hot cognition is linked to recognizing, while cold cognition relates to language.
-Hot cognition includes emotions, while cold cognition does not involve emotions.
-Hot cognition works only during sleep, while cold cognition works during wakefulness.
-Hot cognition is related to genes, while cold cognition is related to culture.
-Hot cognition happens in stress, while cold cognition happens in normal situations.
-
-44. Which of the following is NOT a cognitive process?
-Perception.
-Breathing.
-Memory.
-Learning.
-Decision-making.
-
-45. What does the "g-factor" concept by Charles Spearman mean?
-The ability to develop knowledge in one area only.
-General cognitive ability that affects performance on different cognitive tests.
-Skill specifically in math-related tasks.
-A group of social factors that influence intelligence.
-The ability to adapt to physical challenges.
-
-46. Which of the following is one of the eight types of intelligence proposed by Howard Gardner?
-Fluid Intelligence
-Financial Intelligence
-Visual-Spatial Intelligence
-Creative Intelligence
-Technological Intelligence
-
-47. What is the ability to recognize emotions in oneself and others called in the context of Emotional Intelligence?
-Use emotions
-Perceive emotions
-Manage emotions
-Control emotions
-Express emotions
-
-48. According to Cattell’s theory, which of the following best describes fluid intelligence?
-The ability to use accumulated knowledge and experience.
-The ability to learn new things fast and abstractly
-The ability to recall facts and general information quickly.
-The ability to communicate effectively in social situations.
-The ability to rely on the intelligence and experience of others.
-
-49. What does the gambler’s fallacy refer to?
-The belief that a person can control random outcomes because he is just lucky.
-The belief that past events affect the probability of future events in a way that contradicts the laws of probability.
-The assumption that winning streaks are more likely to continue indefinitely.
-The tendency to bet larger amounts after a series of losses.
-The belief that luck always balances out in the long run.
-
-50. One of the cognitive biases:
-Attraction
-Framing effect
-Decision making
-Hot cognition
-Cold cognition
-
-51. How do smart people see their mistakes?
-They ignore them.
-They feel bad and give up.
-They try not to make mistakes by avoiding risks.
-They use mistakes as chances to learn and improve.
-They blame others for them.
-
-52. What is the difference between fluid intelligence and crystallized intelligence?
-Fluid intelligence is about creativity, and crystallized intelligence is about logic.
-Crystallized intelligence is something you're born with, but fluid intelligence is something you learn.
-Fluid intelligence is about memorizing, and crystallized intelligence is about solving puzzles.
-Fluid intelligence helps solve new problems, while crystallized intelligence is what you know from past learning.
-There is no difference.
-
-53. Why are curious people often seen as smart?
-They always agree with others.
-They never ask questions to avoid looking unsure.
-They only focus on finding what’s wrong.
-They ask questions and try to learn about new ideas and possibilities.
-They stick to things they already understand.
-
-54. Why do smart people sometimes wait to finish tasks?
-They don’t care about deadlines.
-They work better when under pressure.
-They are bad at managing their time.
-They use the time to think of better ideas or solutions.
-They forget to do the work.
-
-55. What is «metacognition»?
-The ability to process information at a faster rate than others.
-The ability to think about how are you thinking
-The ability to memorize large amounts of information quickly.
-The ability to understand emotions and manage stress effectively.
-The ability to perform tasks without making mistakes.
-
-56. What does perception allow us to do?
-Make logical decisions
-Interpret and understand sensory information
-Remember past events
-Solve complex problems
-Focus on one task at a time
-
-57. What is the function of attention in cognition?
-To store information for future use
-To focus awareness on specific stimuli
-To recall information from memory
-To interpret sensory data
-To create new concepts
-
-58. Which of the following is an example of a real cognitive bias?
-Problem-solving bias
-Memory recall bias
-Confirmation bias
-Reasoning bias
-Learning new information bias
-
-59. Which cognitive bias involves making judgments based on the first piece of information encountered?
-Availability bias
-Self-serving bias
-Confirmation bias
-Anchoring bias
-Bandwagon effect
-
-60. What is the definition of stress in psychology?
-A purely physical reaction
-A feeling of strain and pressure
-A state of euphoria and relaxation
-The absence of challenges
-A feeling of losing hope
-
-61. What is "eustress"?
-Negative stress causing harm
-Positive stress that motivates and challenges
-Chronic stress leading to fatigue
-A complete absence of stress
-None of the above
-
-62. Which is NOT an instinctive stress response due to 4F theory?
-Fight
-Flight
-Fawn
-Freeze
-Flow
-
-63. Which of the following is an example of natural self-regulation?
-Autogenic training
-Breathing techniques
-Interacting with nature
-Guided meditation
-Cognitive restructuring
-
-64. What helps reduce stress factors effectively?
-Focusing on uncontrollable factors
-Ignoring stressors
-Understanding what is under your control
-Avoiding self-reflection
-Multitasking
-
-65. What is the primary goal of regular stress management practices?
-Avoiding all forms of stress
-Suppressing emotional responses
-Understanding and managing stressors effectively
-Increasing stress hormones like cortisol
-Multitasking to reduce stress
-
-66. What does self-approval involve?
-Seeking validation from others
-Ignoring personal achievements
-Affirming positive thoughts about oneself
-Avoiding self-reflection entirely
-Criticizing one’s outcomes
-
-67. What is an emotion in psychology?
-A subjective response accompanied by physiological changes and often linked to behavioral changes
-A long-lasting general feeling unrelated to specific events
-A purely cognitive and rational evaluation of a situation without bodily response
-A physical sensation without any psychological component
-A random thought that has no effect on behavior
-
-68. Which of the following are considered basic emotions?
-Happiness, sadness, fear, anger, disgust
-Motivation, curiosity, boredom, excitement
-Relaxation, stress, anxiety, flow
-Love, ambition, pride, jealousy
-Hunger, thirst, pain, pleasure
-
-69. What are primary emotions?
-Immediate emotional reactions to a situation
-Emotions learned through social experience
-Feelings caused by physical sensations only
-Emotions that appear after long reflection
-Emotions that are always negative
-
-70. What is emotional intelligence (EI)?
-The ability to recognize, understand, and manage one’s own and others’ emotions
-The capacity to memorize facts and solve mathematical problems
-A skill to act without considering feelings of others
-The tendency to avoid emotional situations
-The ability to control others’ emotions
-
-71. Which of the following are core components of emotional intelligence?
-Self-awareness, self-regulation, motivation, empathy, social skills
-Motivation, empathy, attention, perception, reasoning
-Strength, speed, self-awareness, endurance, flexibility
-Empathy, social skills creativity, problem-solving, motivation
-Self-regulation, motivation, reflection, imitation, repetition
-
-72. Who is credited with developing the first typology of temperaments in ancient times?
-Hippocrates
-Aristotle
-Immanuel Kant
+87. Who is most closely associated with psychoanalysis?
+Carl Rogers
+Sigmund Freud
 Ivan Pavlov
-Claudius Galen
+Jean Piaget
 
-73. According to Ivan Pavlov, what are the three innate properties of the nervous system that define temperament?
-Speed, focus, and energy
-Strength, flexibility, and determination
-Mobility, agility, and attention
-Reaction time, patience, and balance
-Strength, mobility, and balance
+88. Who is one of the founders of behaviorism?
+Ivan Pavlov
+Carl Jung
+Abraham Maslow
+Jean Piaget
 
-74. Which temperament thrives on leadership and immediate action?
-Phlegmatic
-Melancholic
-Sanguine
-None of them
-Choleric
+89. Which author is associated with the humanistic approach?
+Sigmund Freud
+Carl Rogers
+John Watson
+Jean Piaget
 
-75. What does the term "temperament" primarily refer to in psychology?
-A learned set of personality traits
-The social environment of an individual
-A person's education level
-Cultural norms
-Innate, biologically-based behavioral tendencies
+90. Which scientist is most often associated with the cognitive approach?
+Jean Piaget
+Sigmund Freud
+Ivan Pavlov
+Carl Rogers
 
-76. Which philosopher divided temperaments into 'temperaments of feeling' and 'temperaments of activity'?
-Aristotle
-Friedrich Nietzsche
-Socrates
-Descartes
-Immanuel Kant
-
-77. Which temperament is described as being calm, analytical, and systematic in problem-solving?
-Sanguine
-Choleric
-Melancholic
-Unpredictable
-Phlegmatic
-
-78. What type of temperament is most likely to quickly adapt to new plans or circumstances?
-Phlegmatic
-Melancholic
-Choleric
-Inflexible
-Sanguine
-
-79. What is the primary distinction between temperament and character?
-Temperament changes significantly, while character is static.
-Temperament is based on socialization, while character is innate.
-Temperament involves core values, while character does not.
-Temperament develops through life experience, while character does not.
-Temperament is biological, while character is shaped by life experiences.
-
-80. Which temperament needs structure and emotional support to thrive?
-Sanguine
-Phlegmatic
-Choleric
-Unpredictable
-Melancholic
-
-81. Which of the following best defines personality?
-A set of physical characteristics that make a person unique
-The characteristic patterns of thoughts, feelings, and behaviors that make a person unique
-A person's social media presence and public image
-The sum of a person's professional achievements
-A collection of temporary emotional states
-
-82. In Freud's theory of personality, which component operates on the "pleasure principle"?
-Ego
-Superego
-Id
-Shadow
-Persona
-
-83. In Freud's theory of personality, which component operates on the "principle of morality"?
-Ego
-Superego
-Id
-Anima
-Animus
-
-84. In Freud's theory of personality, which component operates on the "reality principle"?
-Ego
-Superego
-Id
-Anima
-Shadow
-
-85. What is the main function of Jung's "Persona" archetype?
-It represents our animal instincts
-It is the outward face we present to the world
-It connects us to our unconscious mind
-It represents our true self
-none of the above
-
-86. What does Jung's "Shadow" archetype primarily represent?
-The social roles we play
-The hidden, repressed aspects of our psyche
-The creative, intuitive part of our mind
-The collective unconscious
-None of the above
-
-87. Which of the following best reflects the relationship between the "Shadow" and the "Persona" in Jung’s theory?
-They are identical in function
-They are opposites that complement each other
-They are both repressed aspects of the psyche
-The Persona directly replaces the Shadow
-None of the above
-
-88. In Eric Berne's Transactional Analysis, which personality state is characterized by logic, reasoning, and analyzing situations?
-Parent
-Child
-Adult
-Superego
-Shadow
-
-89. What does the "Parent" state in Berne's Transactional Analysis primarily reflect?
-Spontaneous feelings and impulses
-Learned rules, values, and behaviors
-Logical reasoning and problem-solving
-Subconscious desires
-None of the above
-
-90. Which of the following best describes the "Child" state due to Berne's Theory?
-It regulates emotions logically
-It fully replaces the "Parent" state
-It expresses creativity, emotions, and spontaneity
-It analyzes and processes information
-None of the above
-
-91. Which personality state in Berne’s theory is best suited for solving problems in an objective manner?
-Parent
-Child
-Adult
-Shadow
-Superego
-
-92. Which of the Big Five personality traits is associated with being organized, responsible, and goal directed?
-Openness
-Extraversion
-Agreeableness
-Conscientiousness
-Neuroticism
-
-93. Which of the Big Five personality traits reflects a tendency to experience emotions such as anxiety, anger, and sadness?
-Extraversion
-Neuroticism
-Openness
-Agreeableness
-Conscientiousness
-
-94. Which Big Five trait is linked to being imaginative, curious, and open to new experiences?
-Agreeableness
-Extraversion
-Conscientiousness
-Openness
-Neuroticism
-
-95. What does the "Extraversion" trait in the Big Five describe?
-A preference for solitude and reflection
-A tendency to seek social interaction and energy from others
-A focus on organization and planning
-A disposition towards anxiety and moodiness
-A concern for others' well-being
-
-96. Which of the Big Five traits is characterized by trust, kindness, and a cooperative nature?
-Conscientiousness
-Openness
-Agreeableness
-Extraversion
-Neuroticism
-
-97. What is self-concept?
-The way others perceive you
-Your physical appearance
-Your answer to the question "Who am I?"
-Your professional achievements
-Your social status
-
-98. Which personality type in Jung's theory represents the unconscious feminine side in males and masculine tendencies in women?
-Shadow
-Persona
-Self
-Anima/Animus
-Ego
-
-99. What is personal development?
-A random process of improving life.
-A single event that transforms a person.
-A deliberate effort to improve life.
-Attending personal growth courses.
-Lifelong self-education without specific goals.
-
-100. Which statement about self-awareness is correct?
-Self-awareness helps avoid mistakes.
-It is the analysis of other people’s actions.
-It includes understanding emotions, thoughts, and behaviors.
-It is unnecessary for personal growth.
-Self-awareness is limited to analyzing past experiences.
-
-101. Which techniques will help to develop self-awareness the best way?
-Playing games and having fun.
-Journaling and meditation.
-Watching movies about fiction heroes.
-Constantly working on projects.
-Spontaneous conversations and small-talks.
-
-102. What are the benefits of increased self-awareness?
-Better emotional regulation and decision-making.
-Faster learning of technical skills.
-The ability to avoid all negative emotions.
-Complete elimination of personal weaknesses.
-Greater reliance on others for decisions.
-
-103. How can a growth mindset influence personal development?
-By encouraging a focus on innate talent over effort.
-By promoting resilience and learning from setbacks.
-By avoiding challenges to prevent failure.
-By believing abilities cannot be improved.
-By eliminating the need for continuous learning.
-
-104. What is a characteristic of a fixed mindset?
-Viewing failure as an opportunity to grow.
-Believing abilities are too hard to change.
-Embracing challenges and persisting through setbacks.
-Rewarding effort and learning from mistakes.
-Viewing effort as a pathway to mastery.
-
-105. Which technique helps time management?
-Working without breaks to maximize productivity.
-The Pomodoro Technique and time-blocking.
-Avoiding task prioritization.
-Focusing on multiple tasks at once.
-Procrastinating with the hope problems will just go away.
-
-106. What does prioritization in time management involve?
-Ignoring important tasks to focus on urgent ones.
-Using tools like the Eisenhower Matrix to identify key tasks.
-Completing all tasks simultaneously.
-Avoiding setting boundaries to save time.
-Spending equal time on every activity.
-
-107. What is one way to overcome imposter syndrome?
-Avoid challenging tasks to feel secure.
-Focus on recognizing your efforts and contributions.
-Assume your success is due to external factors.
-Avoid feedback and constructive criticism.
-Stop acknowledging your achievements.
-
-108. What is intrinsic motivation?
-Motivation driven by external rewards.
-Motivation that comes from within, like a passion for a task.
-Motivation that depends on peer approval.
-Motivation based on competition with others.
-Motivation that fades without external pressure.
-
-109. What is a benefit of identifying personal values?
-Making random choices based on circumstances.
-Aligning goals with what is meaningful to you.
-Focusing solely on extrinsic rewards.
-Ignoring intrinsic motivation in decision-making.
-Relying on others to define your priorities.
-
-110. Which example demonstrates a growth mindset?
-Giving up when faced with difficulty.
-Viewing challenges as opportunities to improve.
-Believing you cannot develop new skills.
-Avoiding mistakes by not taking risks.
-Sticking only to what you already know.
-
-111. Which of the following best defines assertive behavior?
-Dominating others to ensure your needs are met, even at their expense.
-Avoiding conflict by prioritizing the needs of others over your own.
-Expressing your thoughts, feelings, and needs honestly and respectfully while respecting others' rights.
-Ignoring others’ opinions and focusing solely on your own perspective.
-Remaining silent to avoid expressing disagreement or dissatisfaction.
-
-112. What is the “Halo Effect”?
-Overgeneralizing based on one positive trait
-Judging based on stereotypes
-Projecting your emotions onto others
-Focusing on first impressions
-Avoiding non-verbal cues
-
-113. What do crossed arms during a conversation often indicate?
-Confidence
-Disagreement
-Politeness
-Happiness
-Attractiveness
+91. Which approach aims to change a person's thoughts and beliefs?
+Cognitive
+Biological
+Psychoanalytic
+Humanistic
 `
 
 const PSYCHOLOGY_ANSWER_KEY: Record<number, number> = {
-  1: 3, 2: 1, 3: 1, 4: 2, 5: 3, 6: 1, 7: 1, 8: 1, 9: 1, 10: 0,
-  11: 2, 12: 1, 13: 1, 14: 2, 15: 1, 16: 4, 17: 1, 18: 1, 19: 2, 20: 2,
-  21: 2, 22: 2, 23: 1, 24: 1, 25: 1, 26: 0, 27: 1, 28: 1, 29: 1, 30: 1,
-  31: 2, 32: 1, 33: 2, 34: 2, 35: 0, 36: 0, 37: 0, 38: 2, 39: 0, 40: 0,
-  41: 1, 42: 1, 43: 1, 44: 1, 45: 1, 46: 2, 47: 1, 48: 1, 49: 1, 50: 1,
-  51: 3, 52: 3, 53: 3, 54: 3, 55: 1, 56: 1, 57: 1, 58: 2, 59: 3, 60: 1,
-  61: 1, 62: 4, 63: 2, 64: 2, 65: 2, 66: 2, 67: 0, 68: 0, 69: 0, 70: 0,
-  71: 0, 72: 4, 73: 4, 74: 4, 75: 4, 76: 4, 77: 4, 78: 4, 79: 4, 80: 4,
-  81: 1, 82: 2, 83: 1, 84: 0, 85: 1, 86: 1, 87: 1, 88: 2, 89: 1, 90: 2,
-  91: 2, 92: 3, 93: 1, 94: 3, 95: 1, 96: 2, 97: 2, 98: 3, 99: 2, 100: 2,
-  101: 1, 102: 0, 103: 1, 104: 1, 105: 1, 106: 1, 107: 1, 108: 1, 109: 1, 110: 1,
-  111: 2, 112: 0, 113: 1
+  1: 2, 2: 0, 3: 1, 4: 0, 5: 0, 6: 0, 7: 1, 8: 0, 9: 0, 10: 0,
+  11: 0, 12: 0, 13: 0, 14: 1, 15: 2, 16: 0, 17: 1, 18: 0, 19: 0, 20: 0,
+  21: 1, 22: 0, 23: 3, 24: 0, 25: 3, 26: 0, 27: 3, 28: 2, 29: 1, 30: 0,
+  31: 0, 32: 1, 33: 1, 34: 2, 35: 0, 36: 0, 37: 3, 38: 0, 39: 0, 40: 0,
+  41: 0, 42: 0, 43: 2, 44: 2, 45: 2, 46: 2, 47: 0, 48: 3, 49: 0, 50: 0,
+  51: 3, 52: 0, 53: 0, 54: 0, 55: 3, 56: 0, 57: 0, 58: 3, 59: 0, 60: 3,
+  61: 0, 62: 0, 63: 3, 64: 1, 65: 0, 66: 1, 67: 2, 68: 2, 69: 0, 70: 1,
+  71: 2, 72: 1, 73: 1, 74: 2, 75: 0, 76: 2, 77: 2, 78: 1, 79: 1, 80: 0,
+  81: 3, 82: 1, 83: 1, 84: 0, 85: 0, 86: 1, 87: 1, 88: 0, 89: 1, 90: 0,
+  91: 0
 }
 // ==========================================
 // CULTUROLOGY DATA
