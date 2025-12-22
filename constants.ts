@@ -1487,552 +1487,552 @@ const PHILOSOPHY_ANSWER_KEY: Record<number, number> = {
 
 
 const PSYCHOLOGY_RAW_DATA = `
-1. ________ focuses on the role of different parts of brain in regulating feelings, memories, emotions and other aspects of behaviour.
+1. <question>________ focuses on the role of different parts of brain in regulating feelings, memories, emotions and other aspects of behaviour.
 Cognitive approach
 Humanistic approach
 Biological approach
 Psychoanalytic approach
 
-2. Focus of the ________ is on the information processing capacity of the individual.
+2. <question>Focus of the ________ is on the information processing capacity of the individual.
 Cognitive approach
 Biological approach
 Humanistic approach
 Psychoanalytic approach
 
-3. ________ assumes that the person is active and self-actualizing agent and has a choice in deciding his behavior.
+3. <question>________ assumes that the person is active and self-actualizing agent and has a choice in deciding his behavior.
 Psychoanalytic approach
 Humanistic approach
 Biological approach
 Cognitive approach
 
-4. According to the ________ majority of human behaviours are triggered by unconscious motivation.
+4. <question>According to the ________ majority of human behaviours are triggered by unconscious motivation.
 Psychoanalytic approach
 Humanistic approach
 Behaviouristic approach
 Cognitive approach
 
-5. The unit of analysis for the ________ is explicit, objective and overt behaviour and its relationship with environmental stimulation
+5. <question>The unit of analysis for the ________ is explicit, objective and overt behaviour and its relationship with environmental stimulation
 Behaviouristic approach
 Humanistic approach
 Psychoanalytic approach
 Cognitive approach
 
-6. Observation is divided into ________ and ________ observation depending on the role of observer.
+6. <question>Observation is divided into ________ and ________ observation depending on the role of observer.
 Participant, non-participant
 Manipulating, controlling
 Individual
 Group
 
-7. In an experiment the experimenter studies the effect of one variable on the other by deliberately ________ and ________ one variable.
+7. <question>In an experiment the experimenter studies the effect of one variable on the other by deliberately ________ and ________ one variable.
 Participant, non-participant
 Manipulating, controlling
 Manipulating, Manipulating
 All answer are correct
 
-8. In the case study method the main unit of analysis is the ________ and his experiences across different contexts in life.
+8. <question>In the case study method the main unit of analysis is the ________ and his experiences across different contexts in life.
 Individual
 Group/ Individual people
 group people
 All answer are correct
 
-9. The variable which is controlled and manipulated by the experimenter is called ________ variable and the variable on which its impact is studied is known as ________ variable.
+9. <question>The variable which is controlled and manipulated by the experimenter is called ________ variable and the variable on which its impact is studied is known as ________ variable.
 Independent, dependent
 Independent, Independent
 Dependent, dependent
 All answer are correct
 
-10. ————————— method is generally used to study the pattern of opinions, attitudes, beliefs and values of the people.
+10. <question>————————— method is generally used to study the pattern of opinions, attitudes, beliefs and values of the people.
 Survey
 test
 Interview
 All answer are correct
 
-11. A ————————— ——————— provides an objective assessment of different qualities and limitations of the individual.
+11. <question>A ————————— ——————— provides an objective assessment of different qualities and limitations of the individual.
 Psychological test
 Interview
 Survey
 All answer are correct
 
-12. ————————————— of a test refers to its consistency in terms yielding the scores from the representative sample for which it has been designed.
+12. <question>————————————— of a test refers to its consistency in terms yielding the scores from the representative sample for which it has been designed.
 Reliability
 Psychological test
 Validity
 All answer are correct
 
-13. —————————— of a test reveals the extent to which the test measures what it claims to measure.
+13. <question>—————————— of a test reveals the extent to which the test measures what it claims to measure.
 Validity
 Psychological test
 Reliability
 All answer are correct
 
-14. A ———————— —————— uses ambiguous, vague and unstructured stimuli such as pictures, inkblots, drawings, incomplete sentences.
+14. <question>A ———————— —————— uses ambiguous, vague and unstructured stimuli such as pictures, inkblots, drawings, incomplete sentences.
 Psychological test
 Projective test
 Interview
 All answer are correct
 
-15. The items (questions) of the questionnaire can be either in ———————— ———— —— form or in —————————- form.
+15. <question>The items (questions) of the questionnaire can be either in ———————— ———— —— form or in —————————- form.
 Continuously, brief
 repeated questions, different questions
 Close-ended, open-ended
 All answer are correct
 
-16. Interview as one of the techniques of data collection is often referred as a —— ———————— ———————— between two persons with a set objective.
+16. <question>Interview as one of the techniques of data collection is often referred as a —— ———————— ———————— between two persons with a set objective.
 Face –to-face interactionGfdgdf
 Structured interview
 Unstructured interview
 All answer are correct
 
-17. In the case of ———————————— —————————— the questions are already framed with the possible option
+17. <question>In the case of ———————————— —————————— the questions are already framed with the possible option
 All answer are correct
 Structured interview
 Face –to-face interaction
 Unstructured interview
 
-18. ——————————— ————————————— comprises of a variety of open-ended questions and the interviewee gives his or her responses as
+18. <question>——————————— ————————————— comprises of a variety of open-ended questions and the interviewee gives his or her responses as
 Unstructured interview
 freely as possible.
 Face –to-face interaction
 Structured interview
 
-19. The process by which a person moves towards fulfilment of wants is called:
+19. <question>The process by which a person moves towards fulfilment of wants is called:
 motivation
 need
 incentive
 goal
 
-20. Secondary needs are acquired through
+20. <question>Secondary needs are acquired through
 social interaction
 biological needs
 intrinsic procession
 innate needs
 
-21. According to Maslow the most basic needs are:
+21. <question>According to Maslow the most basic needs are:
 love
 biological
 safety
 cognitive
 
-22. Reema gets Rs. 20 for every good grade she obtains in school. Reema is receiving:
+22. <question>Reema gets Rs. 20 for every good grade she obtains in school. Reema is receiving:
 extrinsic motivation
 intrinsic motivation
 primary need
 growth need
 
-23. Ashok has a high need for …………….. because he likes to study and investigate new things.
+23. <question>Ashok has a high need for …………….. because he likes to study and investigate new things.
 love
 nurturance
 achievement
 exploration
 
-24. Who developed the personality theories of social cognitive that included observational learning, self-efficacy, situational influences, and cognitive processes?
+24. <question>Who developed the personality theories of social cognitive that included observational learning, self-efficacy, situational influences, and cognitive processes?
 Albert Bandura
 Abraham Maslow
 Sigmund Freud
 Erik Erikson
 
-25. The psychoanalytic perspective of personality emphasizes the importance of
+25. <question>The psychoanalytic perspective of personality emphasizes the importance of
 situational influences
 cognitive processes
 observational learning, self-efficacy
 early childhood experiences and the unconscious mind
 
-26. Who was the first to introduce the concepts of introversion and extroversion
+26. <question>Who was the first to introduce the concepts of introversion and extroversion
 Carl Jung
 Erik Erikson
 Alfred Adler
 Karen Horney
 
-27. The theory Attitudes Versus Actions: LaPiere's (1934) Classic Study suggested that
+27. <question>The theory Attitudes Versus Actions: LaPiere's (1934) Classic Study suggested that
 attitudes correlate with behaviors.
 Attitudes correlate with behaviors depending on the situation
 All answers are correct
 attitudes did not correlate with behaviors.
 
-28. What is correct about temperament.
+28. <question>What is correct about temperament.
 It is the character of a person depending on the social environment
 are human behaviors depending on the situation
 It is considered to have a biological basis
 all answers are correct
 
-29. Sensation and perception are closely related processes. Which is affected by a person's culture and experiences?
+29. <question>Sensation and perception are closely related processes. Which is affected by a person's culture and experiences?
 both sensation and perception
 only perception
 neither sensation nor perception
 only sensation
 
-30. What are values?
+30. <question>What are values?
 Ideas, thoughts, and actions that are important to us
 An object that we like
 Strange thoughts
 Something that we enjoy doing
 
-31. What is a moral value?
+31. <question>What is a moral value?
 set of principles guiding us to evaluate what is right or wrong
 if it is important for acquiring something else
 None of these
 A value that shows you how to do something
 
-32. What is a Social Norm?
+32. <question>What is a Social Norm?
 System of rules created and enforced through social or governmental institutions to regulate behavior
 Are the unwritten rules of behavior that are considered acceptable in a group or society
 these are the rights and obligations of people
 All answers are correct
 
-33. What is Thinking?
+33. <question>What is Thinking?
 Thinking is the mental activity that allows us to understand
 All answers are correct
 Thinking is the mental activity that allows us to understand, process, and communicate information.
 The process of considering or reasoning about something.
 
-34. Basic Elements of Thinking
+34. <question>Basic Elements of Thinking
 analysis, synthesis, generalization.
 knowledge, comprehension, application.
 symbols, concepts, and prototypes.
 all answers are correct
 
-35. The process of interaction with people and the environment is …
+35. <question>The process of interaction with people and the environment is …
 All of answer is correct
 Conversation
 Communication
 interaction
 
-36. The most commonly employed tool of communication is …
+36. <question>The most commonly employed tool of communication is …
 Language
 Emotion
 Act
 All answer is correct
 
-37. Anything that interferes with the sender's creating and delivering a message and the receiver interpreting the message is called__
+37. <question>Anything that interferes with the sender's creating and delivering a message and the receiver interpreting the message is called__
 distortion
 distraction
 netiquette
 communication
 
-38. Communication is always a ___ way process.
+38. <question>Communication is always a ___ way process.
 Two
 one
 three
 four
 
-39. This type of communication is speaking to teachers and students.
+39. <question>This type of communication is speaking to teachers and students.
 oral
 written
 non verbal
 body language
 
-40. This type of communication includes sending emails, typing reports and letters.
+40. <question>This type of communication includes sending emails, typing reports and letters.
 written
 oral
 verbal
 non verbal
 
-41. Delivering a message by means other than speaking or writing is called ___________ communication.
+41. <question>Delivering a message by means other than speaking or writing is called ___________ communication.
 Verbal
 non verbal
 written
 oral
 
-42. Can a person's perception be a barrier to communication
+42. <question>Can a person's perception be a barrier to communication
 Yes
 No
 Depending on the situation
 All of answer is correct
 
-43. Who created the Linear Models of communication?
+43. <question>Who created the Linear Models of communication?
 R. West, L. Turner
 K. Thomas, R.Kilmann
 K. Shannon, W. Weaver
 All of answer is correct
 
-44. In which model of communication, the sender is the source of the message and does not wait the feedback from receiver.
+44. <question>In which model of communication, the sender is the source of the message and does not wait the feedback from receiver.
 Interactional Models of Communication
 Transactional Models of Communication
 Linear Models of Communication
 All of answer is correct
 
-45. The author of the theory conflict resolution strategies that people use to handle conflict, including avoiding, defeating, compromising, accommodating, and collaborating.
+45. <question>The author of the theory conflict resolution strategies that people use to handle conflict, including avoiding, defeating, compromising, accommodating, and collaborating.
 K. Shannon, W. Weaver
 R. West, L. Turner
 K. Thomas, R.Kilmann
 All of answer is correct
 
-46. According Louis R. Pondy research there are the five stages of a conflict episode are identified:
+46. <question>According Louis R. Pondy research there are the five stages of a conflict episode are identified:
 Latent Phase, perceived Phase, differentiation Phase, Initiation Phase, Resolution Phase.
 Prelude to conflict, Triggering Event, felt conflict Event, manifest conflict, and conflict aftermath or conditions.
 latent conflict (conditions), perceived conflict (cognition), felt conflict (affect), manifest conflict (behavior), and conflict aftermath (conditions).
 Triggering Event, felt conflict Event, manifest conflict, and conflict aftermath or conditions.
 
-47. A stressor is...
+47. <question>A stressor is...
 Any person, object, situation or event that produces stress.
 a state of physiological and psychological arousal.
 a psychological factor that always originates from the individual
 an external factor that originates from the environment
 
-48. What does adrenaline do to the body during the alarm stage?
+48. <question>What does adrenaline do to the body during the alarm stage?
 calms the body down
 makes a person tired
 makes you feel good
 triggers the fight/flight response
 
-49. Rio has broken up with his girlfriend. He is feeling very stressed about suddenly becoming single and the end of their relationship. A physical sign of stress that Rio might exhibit is:
+49. <question>Rio has broken up with his girlfriend. He is feeling very stressed about suddenly becoming single and the end of their relationship. A physical sign of stress that Rio might exhibit is:
 headaches
 denial
 panic
 sleep disturbances
 
-50. What part of the nervous system is activated by stress?
+50. <question>What part of the nervous system is activated by stress?
 sympathetic
 parasympathetic
 somatic
 central
 
-51. Stress has been shown to put people at a higher risk for
+51. <question>Stress has been shown to put people at a higher risk for
 unplanned pregnancy
 schizophrenia
 Alzheimer's
 heart attack and stroke
 
-52. Which of these might cause stress?
+52. <question>Which of these might cause stress?
 All answers are correct
 Planning a wedding
 Traveling for vacation
 Driving during rush hour
 
-53. The "stress response" prepares your body to:
+53. <question>The "stress response" prepares your body to:
 Fight or run
 Sleep
 Eat more
 All answers are correct
 
-54. Chronic stress affects sexual health in:
+54. <question>Chronic stress affects sexual health in:
 Both
 All answers are correct
 Man
 Women
 
-55. ———————— ——————— focuses on the role of different parts of brain in regulating feelings, memories, emotions and other aspects of behaviour.
+55. <question>———————— ——————— focuses on the role of different parts of brain in regulating feelings, memories, emotions and other aspects of behaviour.
 Cognitive approach
 Humanistic approach
 Psychoanalytic approach
 Biological approach /neuropsychological approach
 
-56. Which psychological approach emphasizes the study of mental processes such as perception and memory?
+56. <question>Which psychological approach emphasizes the study of mental processes such as perception and memory?
 Cognitive approach
 Humanistic approach
 Psychoanalytic approach
 Biological approach
 
-57. ———————————— ————————— assumes that the person is active and self-actualizing agent and has a choice in deciding his behavior.
+57. <question>———————————— ————————— assumes that the person is active and self-actualizing agent and has a choice in deciding his behavior.
 Humanistic approach
 Psychoanalytic approach
 Biological approach
 Cognitive approach
 
-58. Who developed the theory of psychoanalysis?
+58. <question>Who developed the theory of psychoanalysis?
 Ivan Pavlov
 Albert Bandura
 Carl Jung
 Sigmund Freud
 
-59. Observation is divided into ————————— and ————————— ——— observation depending on the role of observer.
+59. <question>Observation is divided into ————————— and ————————— ——— observation depending on the role of observer.
 Participant, non-participant
 Controlled, uncontrolled
 Structured, unstructured
 Overt, covert
 
-60. In which year was the first psychological laboratory established by Wilhelm Wundt?
+60. <question>In which year was the first psychological laboratory established by Wilhelm Wundt?
 1900
 1950
 2000
 1879
 
-61. What is the main unit of analysis in the case study method?
+61. <question>What is the main unit of analysis in the case study method?
 Individual and his experiences across different contexts in life
 Group of individuals
 Statistical data
 Community dynamics
 
-62. ————————— method is generally used to study the pattern of opinions, attitudes, beliefs and values of the people.
+62. <question>————————— method is generally used to study the pattern of opinions, attitudes, beliefs and values of the people.
 Survey
 Interview
 Test
-All answer is correct
+All answer are correct
 
-63. Which of the following individuals is considered the father of modern psychology?
+63. <question>Which of the following individuals is considered the father of modern psychology?
 B.F. Skinner
 Sigmund Freud
 Carl Rogers
 Wilhelm Wundt
 
-64. Who conducted the Little Albert experiment?
+64. <question>Who conducted the Little Albert experiment?
 Carl Rogers
 John B. Watson
 Sigmund Freud
 B.F. Skinner
 
-65. The items (questions) of the questionnaire can be either in ———————— ———— —— form or in —————————- form.
+65. <question>The items (questions) of the questionnaire can be either in ———————— ———— —— form or in —————————- form.
 open ended; close ended
 personal essay; structured
 descriptive; numerical
 analytical; intuitive
 
-66. Interview as one of the techniques of data collection is often referred as a ————— ———— ————————— ————————— between two persons with a set objective.
+66. <question>Interview as one of the techniques of data collection is often referred as a ————— ———— ————————— ————————— between two persons with a set objective.
 written formal conversation
 Face –to-face interaction
 spontaneous emotional reaction
 casual social meeting
 
-67. Structured interview is characterized by:
+67. <question>Structured interview is characterized by:
 Unplanned and spontaneous questions
 Flexible and changing structure
 Pre-determined questions in a fixed order
 Use of storytelling techniques
 
-68. What was the main goal of the Little Albert experiment?
+68. <question>What was the main goal of the Little Albert experiment?
 To study moral development in children
 To examine memory capacity in infants
 To demonstrate classical conditioning in humans
 To analyze attachment between mother and child
 
-69. The process by which a person moves towards fulfillment of wants is called:
+69. <question>The process by which a person moves towards fulfillment of wants is called:
 Motivation
 Adaptation
 Learning
 Conditioning
 
-70. According to Maslow, the most basic needs are:
+70. <question>According to Maslow, the most basic needs are:
 Safety
 Biological
 Socialization and love
 Esteem and self-actualization
 
-71. Who developed the personality theories of social cognitive that included observational learning, self-efficacy, situational influences, and cognitive processes?
+71. <question>Who developed the personality theories of social cognitive that included observational learning, self-efficacy, situational influences, and cognitive processes?
 Sigmund Freud
 Carl Rogers
 Albert Bandura
 B.F. Skinner
 
-72. The psychoanalytic perspective of personality emphasizes the importance of
+72. <question>The psychoanalytic perspective of personality emphasizes the importance of
 situational influences.
 early childhood experiences and the unconscious mind
 observational learning, self-efficacy.
 cognitive processes
 
-73. Who was the first to introduce the concepts of introversion and extroversion?
+73. <question>Who was the first to introduce the concepts of introversion and extroversion?
 Sigmund Freud
 Carl Jung
 Alfred Adler
 Erik Erikson
 
-74. What was the main finding of the learned helplessness experiment?
+74. <question>What was the main finding of the learned helplessness experiment?
 Animals prefer social environments.
 Animals can develop new skills quickly.
 Animals can become passive when they feel they have no control
 Animals can learn to escape from stress
 
-75. What is the primary focus of communication theory in psychology?
+75. <question>What is the primary focus of communication theory in psychology?
 Analyzing how information is transmitted and received
 Understanding how people learn.
 Exploring emotions.
 Studying brain functions
 
-76. What is important for successful communication?
+76. <question>What is important for successful communication?
 Ignoring non-verbal signals.
 High speed of information transmission.
 Understanding the message
 Using complex words
 
-77. The most commonly employed tool of communication is:
+77. <question>The most commonly employed tool of communication is:
 Emotion
 Act
 Language
 Non-verbal cues
 
-78. Communication is always a ___ way process.
+78. <question>Communication is always a ___ way process.
 One
 Two
 Multi
 Unidirectional
 
-79. What is non-verbal communication primarily concerned with?
+79. <question>What is non-verbal communication primarily concerned with?
 The use of words and language
 Body language and facial expressions
 Written communication in formal settings
 The role of speech in social interaction
 
-80. What does psychology study?
+80. <question>What does psychology study?
 Mental processes and behavior of individuals and groups
 Only brain anatomy and physiology
 Patterns of social interaction only
 Emotional responses in animals only
 
-81. Which research method involves systematic observation of behavior in natural conditions without influencing it?
+81. <question>Which research method involves systematic observation of behavior in natural conditions without influencing it?
 Laboratory experiment
 Psychological testing
 Case study
 Naturalistic observation
 
-82. Which psychological approach studies only observable behavior?
+82. <question>Which psychological approach studies only observable behavior?
 Psychoanalytic
 Behaviorist
 Humanistic
 Cognitive
 
-83. Which approach focuses on unconscious processes?
+83. <question>Which approach focuses on unconscious processes?
 Cognitive
 Psychoanalytic
 Behaviorist
 Humanistic
 
-84. Which approach views a person as striving for self-actualization?
+84. <question>Which approach views a person as striving for self-actualization?
 Humanistic
 Behaviorist
 Biological
 Cognitive
 
-85. Which approach studies thinking, memory, and attention?
+85. <question>Which approach studies thinking, memory, and attention?
 Cognitive
 Psychoanalytic
 Humanistic
 Behaviorist
 
-86. Which approach focuses on a person's inner experience and feelings?
+86. <question>Which approach focuses on a person's inner experience and feelings?
 Behavioral
 Humanistic
 Cognitive
 Biological
 
-87. Who is most closely associated with psychoanalysis?
+87. <question>Who is most closely associated with psychoanalysis?
 Carl Rogers
 Sigmund Freud
 Ivan Pavlov
 Jean Piaget
 
-88. Who is one of the founders of behaviorism?
+88. <question>Who is one of the founders of behaviorism?
 Ivan Pavlov
 Carl Jung
 Abraham Maslow
 Jean Piaget
 
-89. Which author is associated with the humanistic approach?
+89. <question>Which author is associated with the humanistic approach?
 Sigmund Freud
 Carl Rogers
 John Watson
 Jean Piaget
 
-90. Which scientist is most often associated with the cognitive approach?
+90. <question>Which scientist is most often associated with the cognitive approach?
 Jean Piaget
 Sigmund Freud
 Ivan Pavlov
 Carl Rogers
 
-91. Which approach aims to change a person's thoughts and beliefs?
+91. <question>Which approach aims to change a person's thoughts and beliefs?
 Cognitive
 Biological
 Psychoanalytic
 Humanistic
-`
+`;
 
 const PSYCHOLOGY_ANSWER_KEY: Record<number, number> = {
   1: 2, 2: 0, 3: 1, 4: 0, 5: 0, 6: 0, 7: 1, 8: 0, 9: 0, 10: 0,

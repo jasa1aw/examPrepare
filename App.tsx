@@ -1,4 +1,3 @@
-
 import { ArrowLeft, ArrowRight, BookOpen, Brain, Globe, GraduationCap, Home, RotateCcw, Settings } from 'lucide-react'
 import React, { useEffect, useState } from 'react'
 import { ApiKeyModal } from './components/ApiKeyModal'
@@ -51,9 +50,12 @@ const App: React.FC = () => {
     if (storedKey) setApiKey(storedKey)
   }, [])
 
-  // Effect to handle subject change
+  // Effect to handle subject change - FIXED
   useEffect(() => {
-    handleRestart(subject)
+    // Only restart if we're in quiz mode and not finished
+    if (appMode === 'QUIZ' && !quizState.isFinished) {
+      handleRestart(subject)
+    }
   }, [subject])
 
   const handleApiKeySave = (key: string) => {
@@ -310,7 +312,6 @@ const App: React.FC = () => {
   }
 
   const handleRestart = (newSubject?: Subject) => {
-    // If just changing subject in header during practice, restart practice
     // If coming from Results, go to Welcome Screen
     if (quizState.isFinished) {
       setAppMode('WELCOME')
@@ -324,8 +325,14 @@ const App: React.FC = () => {
         ? QUESTIONS_CULTUROLOGY
         : QUESTIONS_PHILOSOPHY
 
-    // Default to Practice behavior if switched mid-game via tabs
-    setQuestions(shuffleArray(rawQuestions))
+    let shuffledQuestions = shuffleArray(rawQuestions)
+    
+    // FIXED: Apply the 40 question limit if in EXAM mode
+    if (gameMode === 'EXAM') {
+      shuffledQuestions = shuffledQuestions.slice(0, 40)
+    }
+
+    setQuestions(shuffledQuestions)
     setQuizState({
       currentQuestionIndex: 0,
       userAnswers: {},
@@ -333,7 +340,8 @@ const App: React.FC = () => {
       answerHistory: {},
       isReviewing: false,
       reviewQueue: [],
-      mainProgressIndex: 0
+      mainProgressIndex: 0,
+      startTime: gameMode === 'EXAM' ? Date.now() : undefined
     })
     setCurrentAnalysis(null)
   }
