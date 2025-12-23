@@ -3205,7 +3205,7 @@ export const QUESTIONS_CULTUROLOGY = parseQuestions(CULTUROLOGY_RAW_DATA, CULTUR
 // IDs are offset for culturology to avoid conflicts
 const culturologyQuestionsWithOffset = parseQuestions(CULTUROLOGY_RAW_DATA, CULTUROLOGY_ANSWER_KEY).map((q, index) => ({
   ...q,
-  id: 1000 + index + 1 // Offset culturology IDs to avoid conflicts with psychology
+  id: 91 + index + 1 // Offset culturology IDs to avoid conflicts with psychology
 }))
 export const QUESTIONS_PSYCHOCULTURAL = [
   ...parseQuestions(PSYCHOLOGY_RAW_DATA, PSYCHOLOGY_ANSWER_KEY),

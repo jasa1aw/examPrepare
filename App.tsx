@@ -91,13 +91,12 @@ const App: React.FC = () => {
     }
     const endIndex = startIndex + partConfig.questionsPerPart[partIndex]
 
-    // Get questions for this part (don't shuffle to keep original order by part)
+    // Get questions for this part in original order (no shuffling)
     const partQuestions = rawQuestions.slice(startIndex, endIndex)
-    const shuffledPartQuestions = shuffleArray(partQuestions)
 
     setSelectedPart(partIndex)
     setGameMode('PRACTICE')
-    setQuestions(shuffledPartQuestions)
+    setQuestions(partQuestions)
     setAppMode('QUIZ')
     setQuizState({
       currentQuestionIndex: 0,
