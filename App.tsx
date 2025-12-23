@@ -125,7 +125,7 @@ const App: React.FC = () => {
     let initialQuestions = shuffleArray(rawQuestions)
 
     if (mode === 'EXAM') {
-      initialQuestions = initialQuestions.slice(0, 40)
+      initialQuestions = initialQuestions.slice(0, 50)
     }
 
     setSelectedPart(null)
@@ -381,7 +381,7 @@ const App: React.FC = () => {
 
     // FIXED: Apply the 40 question limit if in EXAM mode
     if (gameMode === 'EXAM') {
-      shuffledQuestions = shuffledQuestions.slice(0, 40)
+      shuffledQuestions = shuffledQuestions.slice(0, 50)
     }
 
     setQuestions(shuffledQuestions)
