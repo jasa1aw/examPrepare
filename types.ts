@@ -24,7 +24,7 @@ export interface QuizState {
   correctCount?: number
 }
 
-export type AppMode = 'WELCOME' | 'QUIZ'
+export type AppMode = 'WELCOME' | 'PART_SELECT' | 'QUIZ'
 export type GameMode = 'PRACTICE' | 'EXAM'
 
 

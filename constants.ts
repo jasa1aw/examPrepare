@@ -3211,3 +3211,11 @@ export const QUESTIONS_PSYCHOCULTURAL = [
   ...parseQuestions(PSYCHOLOGY_RAW_DATA, PSYCHOLOGY_ANSWER_KEY),
   ...culturologyQuestionsWithOffset
 ]
+
+// Part configuration for practice mode
+export const PART_CONFIG = {
+  philosophy: { partCount: 4, questionsPerPart: [50, 50, 50, 50] },
+  psychology: { partCount: 3, questionsPerPart: [30, 30, 31] },
+  culturology: { partCount: 4, questionsPerPart: [40, 40, 40, 40] },
+  psychocultural: { partCount: 5, questionsPerPart: [50, 50, 50, 50, 51] }
+} as const

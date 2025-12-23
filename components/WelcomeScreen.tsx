@@ -4,9 +4,10 @@ import { Subject } from '../types'
 
 interface WelcomeScreenProps {
     onStart: (mode: 'PRACTICE' | 'EXAM', subject: Subject) => void
+    onPracticeSelect: (subject: Subject) => void
 }
 
-export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onStart }) => {
+export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onStart, onPracticeSelect }) => {
     const [subject, setSubject] = React.useState<Subject>('philosophy')
 
     return (
@@ -72,7 +73,7 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onStart }) => {
                 <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto px-4">
                     {/* Practice Mode */}
                     <button
-                        onClick={() => onStart('PRACTICE', subject)}
+                        onClick={() => onPracticeSelect(subject)}
                         className="group relative bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl border-2 border-transparent hover:border-brand-500 transition-all text-left overflow-hidden"
                     >
                         <div className={`absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity ${subject === 'psychology' ? 'text-purple-500' : subject === 'culturology' ? 'text-teal-500' : 'text-brand-500'}`}>

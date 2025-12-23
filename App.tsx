@@ -1,13 +1,14 @@
 import { ArrowLeft, ArrowRight, BookOpen, Brain, Globe, GraduationCap, Home, RotateCcw, Settings, Sparkles } from 'lucide-react'
 import React, { useEffect, useState } from 'react'
 import { ApiKeyModal } from './components/ApiKeyModal'
+import { PartSelectionScreen } from './components/PartSelectionScreen'
 import { QuestionCard } from './components/QuestionCard'
 import { QuizResults } from './components/QuizResults'
 import { StatsSidebar } from './components/StatsSidebar'
 import { WelcomeScreen } from './components/WelcomeScreen'
-import { QUESTIONS_CULTUROLOGY, QUESTIONS_PHILOSOPHY, QUESTIONS_PSYCHOCULTURAL, QUESTIONS_PSYCHOLOGY } from './constants'
+import { PART_CONFIG, QUESTIONS_CULTUROLOGY, QUESTIONS_PHILOSOPHY, QUESTIONS_PSYCHOCULTURAL, QUESTIONS_PSYCHOLOGY } from './constants'
 import { analyzeQuestion } from './services/geminiService'
-import { AIAnalysis, Question, QuizState, Subject } from './types'
+import { AIAnalysis, AppMode, Question, QuizState, Subject } from './types'
 
 const BATCH_SIZE = 15
 
@@ -22,9 +23,10 @@ const shuffleArray = <T,>(array: T[]): T[] => {
 }
 
 const App: React.FC = () => {
-  const [appMode, setAppMode] = useState<'WELCOME' | 'QUIZ'>('WELCOME')
+  const [appMode, setAppMode] = useState<AppMode>('WELCOME')
   const [gameMode, setGameMode] = useState<'PRACTICE' | 'EXAM'>('PRACTICE')
   const [subject, setSubject] = useState<Subject>('philosophy')
+  const [selectedPart, setSelectedPart] = useState<number | null>(null)
 
   // Initialize questions based on subject - initially empty until started
   const [questions, setQuestions] = useState<Question[]>([])
@@ -64,6 +66,51 @@ const App: React.FC = () => {
     setShowKeyModal(false)
   }
 
+  // Navigate to part selection screen for practice mode
+  const handlePracticeSelect = (selectedSubject: Subject) => {
+    setSubject(selectedSubject)
+    setAppMode('PART_SELECT')
+  }
+
+  // Start quiz with specific part for practice mode
+  const handlePartSelect = (partIndex: number) => {
+    const rawQuestions = subject === 'psychology'
+      ? QUESTIONS_PSYCHOLOGY
+      : subject === 'culturology'
+        ? QUESTIONS_CULTUROLOGY
+        : subject === 'psychocultural'
+          ? QUESTIONS_PSYCHOCULTURAL
+          : QUESTIONS_PHILOSOPHY
+
+    const partConfig = PART_CONFIG[subject]
+
+    // Calculate start and end indices for the part
+    let startIndex = 0
+    for (let i = 0; i < partIndex; i++) {
+      startIndex += partConfig.questionsPerPart[i]
+    }
+    const endIndex = startIndex + partConfig.questionsPerPart[partIndex]
+
+    // Get questions for this part (don't shuffle to keep original order by part)
+    const partQuestions = rawQuestions.slice(startIndex, endIndex)
+    const shuffledPartQuestions = shuffleArray(partQuestions)
+
+    setSelectedPart(partIndex)
+    setGameMode('PRACTICE')
+    setQuestions(shuffledPartQuestions)
+    setAppMode('QUIZ')
+    setQuizState({
+      currentQuestionIndex: 0,
+      userAnswers: {},
+      isFinished: false,
+      answerHistory: {},
+      isReviewing: false,
+      reviewQueue: [],
+      mainProgressIndex: 0,
+    })
+    setCurrentAnalysis(null)
+  }
+
   const handleStartQuiz = (mode: 'PRACTICE' | 'EXAM', selectedSubject: Subject) => {
     setGameMode(mode)
     setSubject(selectedSubject)
@@ -81,6 +128,7 @@ const App: React.FC = () => {
       initialQuestions = initialQuestions.slice(0, 40)
     }
 
+    setSelectedPart(null)
     setQuestions(initialQuestions)
     setAppMode('QUIZ')
     setQuizState({
@@ -369,7 +417,17 @@ const App: React.FC = () => {
   }
 
   if (appMode === 'WELCOME') {
-    return <WelcomeScreen onStart={handleStartQuiz} />
+    return <WelcomeScreen onStart={handleStartQuiz} onPracticeSelect={handlePracticeSelect} />
+  }
+
+  if (appMode === 'PART_SELECT') {
+    return (
+      <PartSelectionScreen
+        subject={subject}
+        onSelectPart={handlePartSelect}
+        onBack={() => setAppMode('WELCOME')}
+      />
+    )
   }
 
   return (
