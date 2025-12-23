@@ -2032,7 +2032,7 @@ Cognitive
 Biological
 Psychoanalytic
 Humanistic
-`;
+`
 
 const PSYCHOLOGY_ANSWER_KEY: Record<number, number> = {
   1: 2, 2: 0, 3: 1, 4: 0, 5: 0, 6: 0, 7: 1, 8: 0, 9: 0, 10: 0,
@@ -3200,3 +3200,14 @@ const CULTUROLOGY_ANSWER_KEY: Record<number, number> = {
 export const QUESTIONS_PHILOSOPHY = parseQuestions(PHILOSOPHY_RAW_DATA, PHILOSOPHY_ANSWER_KEY)
 export const QUESTIONS_PSYCHOLOGY = parseQuestions(PSYCHOLOGY_RAW_DATA, PSYCHOLOGY_ANSWER_KEY)
 export const QUESTIONS_CULTUROLOGY = parseQuestions(CULTUROLOGY_RAW_DATA, CULTUROLOGY_ANSWER_KEY)
+
+// Combined Psychology + Cultural Studies questions
+// IDs are offset for culturology to avoid conflicts
+const culturologyQuestionsWithOffset = parseQuestions(CULTUROLOGY_RAW_DATA, CULTUROLOGY_ANSWER_KEY).map((q, index) => ({
+  ...q,
+  id: 1000 + index + 1 // Offset culturology IDs to avoid conflicts with psychology
+}))
+export const QUESTIONS_PSYCHOCULTURAL = [
+  ...parseQuestions(PSYCHOLOGY_RAW_DATA, PSYCHOLOGY_ANSWER_KEY),
+  ...culturologyQuestionsWithOffset
+]

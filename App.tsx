@@ -1,11 +1,11 @@
-import { ArrowLeft, ArrowRight, BookOpen, Brain, Globe, GraduationCap, Home, RotateCcw, Settings } from 'lucide-react'
+import { ArrowLeft, ArrowRight, BookOpen, Brain, Globe, GraduationCap, Home, RotateCcw, Settings, Sparkles } from 'lucide-react'
 import React, { useEffect, useState } from 'react'
 import { ApiKeyModal } from './components/ApiKeyModal'
 import { QuestionCard } from './components/QuestionCard'
 import { QuizResults } from './components/QuizResults'
 import { StatsSidebar } from './components/StatsSidebar'
 import { WelcomeScreen } from './components/WelcomeScreen'
-import { QUESTIONS_CULTUROLOGY, QUESTIONS_PHILOSOPHY, QUESTIONS_PSYCHOLOGY } from './constants'
+import { QUESTIONS_CULTUROLOGY, QUESTIONS_PHILOSOPHY, QUESTIONS_PSYCHOCULTURAL, QUESTIONS_PSYCHOLOGY } from './constants'
 import { analyzeQuestion } from './services/geminiService'
 import { AIAnalysis, Question, QuizState, Subject } from './types'
 
@@ -72,7 +72,9 @@ const App: React.FC = () => {
       ? QUESTIONS_PSYCHOLOGY
       : selectedSubject === 'culturology'
         ? QUESTIONS_CULTUROLOGY
-        : QUESTIONS_PHILOSOPHY
+        : selectedSubject === 'psychocultural'
+          ? QUESTIONS_PSYCHOCULTURAL
+          : QUESTIONS_PHILOSOPHY
     let initialQuestions = shuffleArray(rawQuestions)
 
     if (mode === 'EXAM') {
@@ -323,10 +325,12 @@ const App: React.FC = () => {
       ? QUESTIONS_PSYCHOLOGY
       : targetSubject === 'culturology'
         ? QUESTIONS_CULTUROLOGY
-        : QUESTIONS_PHILOSOPHY
+        : targetSubject === 'psychocultural'
+          ? QUESTIONS_PSYCHOCULTURAL
+          : QUESTIONS_PHILOSOPHY
 
     let shuffledQuestions = shuffleArray(rawQuestions)
-    
+
     // FIXED: Apply the 40 question limit if in EXAM mode
     if (gameMode === 'EXAM') {
       shuffledQuestions = shuffledQuestions.slice(0, 40)
@@ -421,6 +425,16 @@ const App: React.FC = () => {
                 <Globe size={16} />
                 <span className="hidden xs:inline">Culturology</span>
               </button>
+              <button
+                onClick={() => setSubject('psychocultural')}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm font-medium transition-all ${subject === 'psychocultural'
+                  ? 'bg-white text-amber-700 shadow-sm'
+                  : 'text-gray-500 hover:text-gray-700'
+                  }`}
+              >
+                <Sparkles size={16} />
+                <span className="hidden xs:inline">Psych+Culture</span>
+              </button>
             </div>
           </div>
 
@@ -450,7 +464,7 @@ const App: React.FC = () => {
         {!quizState.isFinished && (
           <div className="h-1 w-full bg-gray-100 relative">
             <div
-              className={`h-full transition-all duration-500 ease-out ${subject === 'psychology' ? 'bg-purple-600' : subject === 'culturology' ? 'bg-teal-500' : 'bg-brand-500'}`}
+              className={`h-full transition-all duration-500 ease-out ${subject === 'psychology' ? 'bg-purple-600' : subject === 'culturology' ? 'bg-teal-500' : subject === 'psychocultural' ? 'bg-amber-500' : 'bg-brand-500'}`}
               style={{ width: `${progress}%` }}
             />
           </div>

@@ -35,4 +35,4 @@ export interface AIAnalysis {
 
 
 
-export type Subject = 'philosophy' | 'psychology' | 'culturology'
+export type Subject = 'philosophy' | 'psychology' | 'culturology' | 'psychocultural'

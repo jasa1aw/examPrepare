@@ -1,4 +1,4 @@
-import { ArrowRight, Award, BookOpen, Brain, Clock, Globe, GraduationCap } from 'lucide-react'
+import { ArrowRight, Award, BookOpen, Brain, Clock, Globe, GraduationCap, Sparkles } from 'lucide-react'
 import React from 'react'
 import { Subject } from '../types'
 
@@ -26,7 +26,7 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onStart }) => {
                 </div>
 
                 {/* Subject Selection */}
-                <div className="flex justify-center gap-4">
+                <div className="flex flex-wrap justify-center gap-4">
                     <button
                         onClick={() => setSubject('philosophy')}
                         className={`flex items-center gap-2 px-6 py-3 rounded-full font-semibold transition-all ${subject === 'philosophy'
@@ -56,6 +56,16 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onStart }) => {
                     >
                         <Globe size={20} />
                         Culturology
+                    </button>
+                    <button
+                        onClick={() => setSubject('psychocultural')}
+                        className={`flex items-center gap-2 px-6 py-3 rounded-full font-semibold transition-all ${subject === 'psychocultural'
+                            ? 'bg-white text-amber-700 shadow-md border-amber-100 ring-2 ring-amber-500 ring-offset-2'
+                            : 'bg-transparent text-gray-400 hover:text-gray-600'
+                            }`}
+                    >
+                        <Sparkles size={20} />
+                        Psychology+Culture
                     </button>
                 </div>
 
