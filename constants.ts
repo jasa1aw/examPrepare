@@ -1463,26 +1463,206 @@ hard work
 `
 
 const PHILOSOPHY_ANSWER_KEY: Record<number, number> = {
-  1: 0, 2: 4, 3: 3, 4: 0, 5: 3, 6: 1, 7: 0, 8: 0, 9: 2, 10: 0,
-  11: 2, 12: 1, 13: 3, 14: 2, 15: 3, 16: 3, 17: 1, 18: 0, 19: 2, 20: 1,
-  21: 4, 22: 2, 23: 3, 24: 1, 25: 0, 26: 2, 27: 0, 28: 4, 29: 0, 30: 3,
-  31: 0, 32: 3, 33: 3, 34: 3, 35: 3, 36: 4, 37: 1, 38: 1, 39: 1, 40: 1,
-  41: 0, 42: 2, 43: 1, 44: 1, 45: 2, 46: 2, 47: 3, 48: 0, 49: 2, 50: 2,
-  51: 1, 52: 0, 53: 1, 54: 3, 55: 4, 56: 2, 57: 0, 58: 1, 59: 3, 60: 0,
-  61: 2, 62: 1, 63: 0, 64: 1, 65: 0, 66: 0, 67: 1, 68: 3, 69: 4, 70: 2,
-  71: 2, 72: 0, 73: 0, 74: 4, 75: 0, 76: 2, 77: 3, 78: 4, 79: 1, 80: 0,
-  81: 2, 82: 2, 83: 1, 84: 1, 85: 0, 86: 1, 87: 2, 88: 1, 89: 4, 90: 0,
-  91: 1, 92: 2, 93: 2, 94: 4, 95: 1, 96: 1, 97: 2, 98: 2, 99: 4, 100: 1,
-  101: 1, 102: 2, 103: 1, 104: 1, 105: 1, 106: 4, 107: 4, 108: 0, 109: 0, 110: 2,
-  111: 4, 112: 2, 113: 4, 114: 0, 115: 1, 116: 1, 117: 1, 118: 1, 119: 1, 120: 1,
-  121: 2, 122: 1, 123: 4, 124: 1, 125: 1, 126: 1, 127: 1, 128: 1, 129: 1, 130: 1,
-  131: 1, 132: 1, 133: 1, 134: 1, 135: 1, 136: 1, 137: 0, 138: 3, 139: 4, 140: 1,
-  141: 1, 142: 0, 143: 0, 144: 1, 145: 0, 146: 3, 147: 1, 148: 1, 149: 2, 150: 1,
-  151: 1, 152: 0, 153: 1, 154: 2, 155: 1, 156: 0, 157: 3, 158: 1, 159: 1, 160: 1,
-  161: 0, 162: 1, 163: 1, 164: 1, 165: 2, 166: 1, 167: 1, 168: 0, 169: 3, 170: 0,
-  171: 2, 172: 0, 173: 2, 174: 2, 175: 2, 176: 4, 177: 1, 178: 0, 179: 2, 180: 3,
-  181: 4, 182: 1, 183: 4, 184: 2, 185: 3, 186: 4, 187: 1, 188: 0, 189: 2, 190: 3,
-  191: 4, 192: 1, 193: 3, 194: 1, 195: 0, 196: 2, 197: 3, 198: 4, 199: 1, 200: 1
+  1: 0,   // The unity of man and the world
+  2: 4,   // all answer are correct
+  3: 3,   // the world and the man
+  4: 0,   // the most general laws and patterns...
+  5: 3,   // Gnoseology, ontology, ethics, aesthetics
+  6: 1,   // Scientific
+  7: 0,   // What is primary: consciousness or matter?
+  8: 0,   // Relation of thinking to being
+  9: 2,   // Materialism and idealism
+  10: 0,  // Gnosticism and agnosticism
+  11: 2,  // the world is static, unchanging
+  12: 1,  // the world is flux
+  13: 0,  // mental - CHANGED (was 3)
+  14: 2,  // Mind and body
+  15: 3,  // reasoning
+  16: 3,  // intuition
+  17: 1,  // ideas
+  18: 0,  // substance
+  19: 2,  // existence
+  20: 1,  // organism
+  21: 4,  // social being
+  22: 2,  // rational being
+  23: 3,  // ethics
+  24: 1,  // Things we cannot cognize
+  25: 0,  // Unknowable world
+  26: 2,  // Sensual images of objects
+  27: 2,  // System of beliefs - CHANGED (was 0)
+  28: 4,  // Religion
+  29: 0,  // Syncretism
+  30: 3,  // Magic
+  31: 0,  // Cult of ancestors
+  32: 3,  // Dialectical materialism
+  33: 3,  // Social-economic formation
+  34: 3,  // Recognized necessity
+  35: 3,  // Human existence
+  36: 4,  // Superman
+  37: 1,  // Absurdity and rebellion
+  38: 1,  // Man himself determines his existence
+  39: 1,  // Unconscious
+  40: 1,  // Socrates
+  41: 0,  // Study of values
+  42: 2,  // R.Descartes
+  43: 1,  // Epistemology
+  44: 1,  // World in whole and the place of man
+  45: 2,  // A study of morality and moral behaviour
+  46: 2,  // A study of beauty and art
+  47: 3,  // Mythology
+  48: 0,  // Religion
+  49: 2,  // Virtue is knowledge
+  50: 2,  // Albert Camus
+  51: 1,  // Hegel
+  52: 0,  // India and China
+  53: 1,  // the Kant's Categorical imperative
+  54: 3,  // I think, therefore, I exist
+  55: 4,  // Karma
+  56: 2,  // Tribe
+  57: 0,  // Cave
+  58: 1,  // Marketplace
+  59: 3,  // Theatre
+  60: 0,  // Empiricism
+  61: 2,  // Moral problems
+  62: 1,  // Love of wisdom
+  63: 0,  // Wise man
+  64: 1,  // Aristotle
+  65: 0,  // Logos (fire)
+  66: 0,  // Numbers
+  67: 1,  // Peripatetism
+  68: 3,  // Human is a creator, artist...
+  69: 4,  // Socrates
+  70: 2,  // Thomas Aquinas
+  71: 2,  // Plato
+  72: 0,  // God
+  73: 3,  // Belief in the supernatural... - CHANGED (was 0)
+  74: 4,  // Anthropocentrism
+  75: 0,  // God
+  76: 2,  // Existentialism
+  77: 3,  // Providentialism
+  78: 4,  // Sigmund Freud
+  79: 1,  // Nietzsche
+  80: 0,  // Philosophy of history
+  81: 2,  // Marx
+  82: 2,  // Kierkegaard
+  83: 1,  // Freud
+  84: 1,  // Beauty, art, harmony, style
+  85: 0,  // Nietzsche
+  86: 1,  // Camus, Sartre, Kierkegaard
+  87: 2,  // Meaningless of existence
+  88: 1,  // I rebel, therefore I exist
+  89: 4,  // His coming death
+  90: 0,  // A project of himself
+  91: 1,  // A healthy person with neurotic symptoms
+  92: 2,  // Id
+  93: 2,  // Symbols of Collective Unconscious
+  94: 4,  // Collective unconsciousness
+  95: 1,  // Ego, Id, Super Ego
+  96: 1,  // Human existence
+  97: 2,  // Man was thrown into the world
+  98: 2,  // Will to power
+  99: 4,  // Does not believe in God
+  100: 1, // Tengrism and shamanism
+  101: 1, // Dialectical materialism
+  102: 2, // Historical materialism
+  103: 1, // Dialectics
+  104: 1, // Classless society
+  105: 1, // Social economic formation
+  106: 4, // all of them
+  107: 4, // all of them
+  108: 0, // ideality
+  109: 0, // Man with thinking
+  110: 2, // immaterial substance
+  111: 4, // highest property of brain
+  112: 2, // acts
+  113: 4, // self-awareness
+  114: 0, // outer side of consciousness
+  115: 1, // study of Being
+  116: 1, // what comes after physics
+  117: 1, // category for existence
+  118: 1, // what is the essence of the world
+  119: 1, // independent entity
+  120: 1, // Parmenides
+  121: 2, // Aristotle
+  122: 1, // Parmenides
+  123: 1, // Christianity
+  124: 1, // Descartes
+  125: 1, // Leibniz
+  126: 1, // Hegel
+  127: 1, // Heidegger
+  128: 1, // All of them
+  129: 1, // material being
+  130: 1, // All of them
+  131: 1, // all of them
+  132: 1, // motion from simple to complex
+  133: 0, // Regress and progress
+  134: 1, // Three-dimensional
+  135: 1, // all of them
+  136: 1, // Essence and phenomenon
+  137: 0, // Content and form
+  138: 2, // Cause and effect
+  139: 1, // mastering knowledge - CHANGED (was 4)
+  140: 1, // information
+  141: 1, // knowledge is the result of cognitive process
+  142: 1, // theory scientific knowledge - CHANGED (was 0)
+  143: 0, // Theory of knowledge
+  144: 1, // cognitive optimism
+  145: 0, // Cognitive pessimism
+  146: 3, // cognitive doubts
+  147: 1, // innate ideas
+  148: 1, // Marx
+  149: 2, // Kant
+  150: 1, // scientific cognition
+  151: 1, // sensual and rational
+  152: 0, // Statement reflecting things...
+  153: 1, // logical image...
+  154: 2, // deduction from several...
+  155: 3, // comprehend the truth by seeing it clear - CHANGED (was 1)
+  156: 0, // correspondence of knowledge to reality
+  157: 1, // is the essential part of the cognitive process - CHANGED (was 3)
+  158: 1, // values
+  159: 1, // truth, beauty, good
+  160: 0, // material, spiritual - CHANGED (was 1)
+  161: 0, // material, spiritual
+  162: 1, // theory of morality
+  163: 1, // social regulation form through good-bad
+  164: 1, // it is studied in order to become virtuous
+  165: 1, // difference between what is Due and what is Real - CHANGED (was 2)
+  166: 1, // faith, hope, love
+  167: 1, // focus on what you control
+  168: 0, // live for pleasure and well-being
+  169: 3, // usefulness, practicability, benefit
+  170: 0, // live for pleasure and well-being
+  171: 2, // live a complete and fulfilling life
+  172: 0, // Art is representation of reality
+  173: 2, // Art is expression of spiritual world
+  174: 3, // Art is only fine art - CHANGED (was 2)
+  175: 2, // Art is expression of spiritual world
+  176: 4, // Art is skill and mastery
+  177: 1, // Apollonian and Dionysian
+  178: 0, // sublimation
+  179: 2, // absurd
+  180: 3, // mimesis
+  181: 4, // catharsis
+  182: 1, // Aristotle
+  183: 2, // Spinoza - CHANGED (was 4)
+  184: 2, // Spinoza
+  185: 3, // Rousseau
+  186: 4, // Fromm
+  187: 1, // fatalism
+  188: 0, // liberalism
+  189: 2, // determinism
+  190: 3, // voluntarism
+  191: 4, // providentialism
+  192: 1, // all of them
+  193: 1, // Social system - CHANGED (was 3)
+  194: 1, // society is organism
+  195: 0, // Society is social relations
+  196: 2, // Society is geographic adaptation
+  197: 3, // Society is ideal place
+  198: 4, // Society is summation of individuals
+  199: 1, // is material and spiritual environment
+  200: 1  // consumerism
 }
 
 
